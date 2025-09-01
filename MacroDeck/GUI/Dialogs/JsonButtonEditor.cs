@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.Logging;
+using System.ComponentModel;
 
 namespace SuchByte.MacroDeck.GUI.Dialogs;
 
@@ -20,6 +21,7 @@ public partial class JsonButtonEditor : DialogForm
     };
 
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public ActionButton.ActionButton ActionButton { get; set; }
 
 

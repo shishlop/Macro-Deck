@@ -1,6 +1,7 @@
 ﻿using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using System.ComponentModel;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls;
 
@@ -15,6 +16,7 @@ public partial class RoundedTextBox : UserControl
     private bool isPasswordChar;
     private Image icon;
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public Image Icon
     {
         get => icon;
@@ -26,24 +28,28 @@ public partial class RoundedTextBox : UserControl
         }
     }
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public ScrollBars ScrollBars
     {
         get => textBox1.ScrollBars;
         set => textBox1.ScrollBars = value;
     }
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public bool ReadOnly
     {
         get => textBox1.ReadOnly;
         set => textBox1.ReadOnly = value;
     }
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public HorizontalAlignment TextAlignment
     {
         get => textBox1.TextAlign;
         set => textBox1.TextAlign = value;
     }
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public bool PasswordChar
     {
         get => isPasswordChar;
@@ -55,6 +61,7 @@ public partial class RoundedTextBox : UserControl
         }
     }
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public int MaxCharacters
     {
         get => textBox1.MaxLength;
@@ -76,6 +83,7 @@ public partial class RoundedTextBox : UserControl
         textBox1.AutoCompleteSource = autoCompleteSource;
     }
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public bool Multiline
     {
         get => textBox1.Multiline;
@@ -140,6 +148,7 @@ public partial class RoundedTextBox : UserControl
     }
 
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public Color PlaceHolderColor
     {
         get => placeHolderColor;
@@ -154,6 +163,7 @@ public partial class RoundedTextBox : UserControl
     }
 
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public string PlaceHolderText
     {
         get => placeHolderText;
@@ -165,6 +175,7 @@ public partial class RoundedTextBox : UserControl
         }
     }
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public int SelectionStart
     {
         get => textBox1.SelectionStart;

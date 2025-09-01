@@ -2,22 +2,29 @@
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using SuchByte.MacroDeck.Properties;
+using System.ComponentModel;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls;
 
 public class RoundedButton : PictureBox
 {
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public int Row { get; set; }
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public int Column { get; set; }
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public int Radius { get; set; } = 40;
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public Image ForegroundImage { get => _foregroundImage;
         set { _foregroundImage = value; Invalidate(); } }
     private Image _foregroundImage;
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public bool ShowGIFIndicator { get => _gifIndicator;
         set { _gifIndicator = value; Invalidate(); } }
     private bool _gifIndicator;
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public bool ShowKeyboardHotkeyIndicator { get => _keyboardHotkeyIndicator;
         set { _keyboardHotkeyIndicator = value; Invalidate(); } }
     private bool _keyboardHotkeyIndicator;

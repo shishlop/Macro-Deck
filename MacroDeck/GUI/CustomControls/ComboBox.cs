@@ -1,6 +1,7 @@
 ﻿using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using System.ComponentModel;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls;
 
@@ -12,6 +13,7 @@ public class ComboBox : System.Windows.Forms.ComboBox
     private bool _regionSet;
     private bool _hover;
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public int BorderRadius
     {
         get => _borderRadius;

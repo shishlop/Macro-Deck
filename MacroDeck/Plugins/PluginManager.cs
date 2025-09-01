@@ -156,9 +156,9 @@ public static class PluginManager
                         
                     AddPlugin(plugin);
                     PluginDirectories[plugin] = pluginDirectory;
-                    Task.Run(async () =>
-                        await SearchUpdate(plugin)
-                    );
+                    // Task.Run(async () =>
+                    //     await SearchUpdate(plugin)
+                    // );
                     if (File.Exists(Path.Combine(pluginDirectory, "ExtensionIcon.png")))
                     {
                         plugin.PluginIcon =

@@ -8,11 +8,13 @@ using SuchByte.MacroDeck.Interfaces;
 using SuchByte.MacroDeck.Language;
 using SuchByte.MacroDeck.Plugins;
 using SuchByte.MacroDeck.Variables;
+using System.ComponentModel;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls;
 
 public partial class ConditionItem : UserControl, IActionConditionItem
 {
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public PluginAction? Action { get; set; } = new ConditionAction();
 
     public event EventHandler OnRemoveClick;

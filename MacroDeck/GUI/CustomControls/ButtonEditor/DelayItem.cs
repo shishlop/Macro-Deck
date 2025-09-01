@@ -2,11 +2,13 @@
 using SuchByte.MacroDeck.ActionButton.Plugin;
 using SuchByte.MacroDeck.Interfaces;
 using SuchByte.MacroDeck.Plugins;
+using System.ComponentModel;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor;
 
 public partial class DelayItem : UserControl, IActionConditionItem
 {
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public PluginAction? Action { get; set; }
 
     public event EventHandler OnRemoveClick;

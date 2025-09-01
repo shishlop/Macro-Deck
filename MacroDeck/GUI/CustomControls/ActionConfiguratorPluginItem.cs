@@ -2,6 +2,7 @@
 using SuchByte.MacroDeck.Language;
 using SuchByte.MacroDeck.Plugins;
 using SuchByte.MacroDeck.Properties;
+using System.ComponentModel;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls;
 
@@ -9,8 +10,10 @@ public partial class ActionConfiguratorPluginItem : RoundedUserControl
 {
     private bool selected;
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public MacroDeckPlugin Plugin { get; set; }
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public bool Selected 
     { 
         get => selected;

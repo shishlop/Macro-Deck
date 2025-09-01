@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
+using System.ComponentModel;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls;
 
@@ -9,6 +10,7 @@ public partial class PlaceHolderTextBox : TextBox
 
     bool isPlaceHolder = true;
     string _placeHolderText;
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public string PlaceHolderText
     {
         get => _placeHolderText;
@@ -19,6 +21,7 @@ public partial class PlaceHolderTextBox : TextBox
         }
     }
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public new string Text
     {
         get => (isPlaceHolder || base.Text == _placeHolderText) ? string.Empty : base.Text;

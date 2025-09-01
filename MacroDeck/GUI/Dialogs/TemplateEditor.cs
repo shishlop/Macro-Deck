@@ -8,6 +8,7 @@ using SuchByte.MacroDeck.CottleIntegration;
 using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.Language;
 using SuchByte.MacroDeck.Variables;
+using System.ComponentModel;
 
 namespace SuchByte.MacroDeck.GUI.Dialogs;
 
@@ -31,6 +32,7 @@ public partial class TemplateEditor : DialogForm
     private readonly Regex variableRegex;
     private bool HasTrimBlank => TemplateManager.HasTrimBlank(Template);
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public string Template 
     { 
         get => template.Text;

@@ -1,11 +1,13 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
+using System.ComponentModel;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls;
 
 public class PictureButton : PictureBox
 {
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public Image HoverImage { 
         get => _hoverImage;
         set { 

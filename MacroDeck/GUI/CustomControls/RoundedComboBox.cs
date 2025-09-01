@@ -17,6 +17,7 @@ public partial class RoundedComboBox : UserControl
 
     public event EventHandler SelectedIndexChanged;
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public Image Icon
     {
         get => icon;
@@ -33,6 +34,7 @@ public partial class RoundedComboBox : UserControl
         return borderlessComboBox1.FindStringExact(str);
     }
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public new bool Enabled
     {
         get => borderlessComboBox1.Enabled;
@@ -55,6 +57,7 @@ public partial class RoundedComboBox : UserControl
     }
 
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public ComboBoxStyle DropDownStyle
     {
         get => borderlessComboBox1.DropDownStyle;
@@ -65,6 +68,7 @@ public partial class RoundedComboBox : UserControl
     public System.Windows.Forms.ComboBox.ObjectCollection Items => borderlessComboBox1.Items;
 
     [Browsable(false)]
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public int SelectedIndex
     {
         get => borderlessComboBox1.SelectedIndex;
@@ -73,6 +77,7 @@ public partial class RoundedComboBox : UserControl
 
     [Bindable(true)]
     [Browsable(false)]
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public object SelectedItem
     {
         get => borderlessComboBox1.SelectedItem;

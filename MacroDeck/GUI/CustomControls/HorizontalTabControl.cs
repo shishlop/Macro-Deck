@@ -1,6 +1,7 @@
 ﻿using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using System.ComponentModel;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls;
 
@@ -21,6 +22,7 @@ public class HorizontalTabControl : TabControl
     }
 
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public Color BackgroundColor { get; set; } = Color.FromArgb(45, 45, 45);
 
     protected override void OnPaint(PaintEventArgs e)

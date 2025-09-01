@@ -1,11 +1,13 @@
 ﻿using System.Windows.Forms;
 using SuchByte.MacroDeck.Interfaces;
 using SuchByte.MacroDeck.Plugins;
+using System.ComponentModel;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls;
 
 public partial class ActionItem : UserControl, IActionConditionItem
 {
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public PluginAction? Action { get; set; }
 
     public event EventHandler OnRemoveClick;

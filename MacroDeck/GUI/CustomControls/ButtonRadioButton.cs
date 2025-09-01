@@ -1,6 +1,7 @@
 ﻿using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using System.ComponentModel;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls;
 
@@ -12,6 +13,7 @@ public partial class ButtonRadioButton : RadioButton
     private bool _hover;
     private ContentAlignment _iconAlignment = ContentAlignment.MiddleLeft;
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public ContentAlignment IconAlignment
     {
         get => _iconAlignment;
@@ -22,6 +24,7 @@ public partial class ButtonRadioButton : RadioButton
         }
     }
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public Image Icon
     {
         get => _icon;
@@ -32,6 +35,7 @@ public partial class ButtonRadioButton : RadioButton
         }
     }
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public int BorderRadius
     {
         get => _borderRadius;

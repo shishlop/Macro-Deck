@@ -1,11 +1,13 @@
 ﻿using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using System.ComponentModel;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls;
 
 public partial class DialogForm : System.Windows.Forms.Form
 {
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public bool IgnoreEscapeKey { get; set; } = false;
 
     public DialogForm()

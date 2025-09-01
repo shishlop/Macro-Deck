@@ -1,6 +1,7 @@
 ﻿using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using System.ComponentModel;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls;
 
@@ -8,6 +9,7 @@ public class VerticalTabControl : TabControl
 {
     private List<int> _notificationIndexes = new();
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public Color SelectedTabColor { get; set; } = Colors.AccentColorDark;
 
 

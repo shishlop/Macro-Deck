@@ -1,12 +1,15 @@
 ﻿using System.Windows.Forms;
 using SuchByte.MacroDeck.Plugins;
+using System.ComponentModel;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls;
 
 public partial class ActionConfiguratorActionItem : RoundedUserControl
 {
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public PluginAction PluginAction { get; set; }
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public MacroDeckPlugin Plugin { get; set; }
 
 

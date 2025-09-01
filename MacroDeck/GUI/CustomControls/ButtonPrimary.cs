@@ -2,6 +2,7 @@
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using SuchByte.MacroDeck.Properties;
+using System.ComponentModel;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls;
 
@@ -20,9 +21,11 @@ public partial class ButtonPrimary : Button
     private Image _icon;
     private bool currentlyAnimating;
     private Bitmap spinnerBitmap = Resources.Spinner;
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public bool UseWindowsAccentColor { get; set; } = true;
 
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public Image Icon
     {
         get => _icon;
@@ -35,6 +38,7 @@ public partial class ButtonPrimary : Button
 
     public bool Spinner = false;
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public bool WriteProgress { get; set; } = true;
 
 
@@ -55,6 +59,7 @@ public partial class ButtonPrimary : Button
         Invalidate();
     }
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public new Color BackColor
     {
         get => backColor;
@@ -65,6 +70,7 @@ public partial class ButtonPrimary : Button
         }
     }
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public Color HoverColor
     {
         get => hoverColor;
@@ -75,6 +81,7 @@ public partial class ButtonPrimary : Button
         }
     }
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public Color ProgressColor
     {
         get => progressColor;
@@ -86,6 +93,7 @@ public partial class ButtonPrimary : Button
     }
 
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
     public int BorderRadius
     {
         get => borderRadius;
@@ -96,6 +104,7 @@ public partial class ButtonPrimary : Button
         }
     }
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
     public int Progress
     {
         get => progress;

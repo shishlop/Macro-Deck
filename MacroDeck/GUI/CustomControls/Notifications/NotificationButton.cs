@@ -1,5 +1,6 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
+using System.ComponentModel;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls.Notifications;
 
@@ -8,6 +9,7 @@ public class NotificationButton : ButtonPrimary
 
     private int _notificationCount;
 
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public int NotificationCount
     {
         get => _notificationCount;

@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using System.ComponentModel;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls
 {
@@ -7,6 +8,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
         private int _currentPage = 1;
         private int _pages = 1;
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public int CurrentPage
         {
             get => _currentPage;
@@ -22,6 +24,7 @@ namespace SuchByte.MacroDeck.GUI.CustomControls
             }
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public int Pages
         {
             get => _pages;
