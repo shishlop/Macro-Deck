@@ -4,17 +4,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.3.32811.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MacroDeck", "MacroDeck\MacroDeck.csproj", "{119E86B4-9738-4684-AF88-CDBBF0315BBF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5054EE63-C0C8-6E38-7387-62A142B6B399} = {5054EE63-C0C8-6E38-7387-62A142B6B399}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MacroDeck.Tests", "MacroDeck.Tests\MacroDeck.Tests.csproj", "{49F1CAC2-158D-45AC-B07C-52394B10A7E2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{A87511C0-A46B-40E0-A47A-81AEE2097F5D}"
 	ProjectSection(SolutionItems) = preProject
-		.github\workflows\tests.yml = .github\workflows\tests.yml
 		.github\workflows\build-push-windows.yml = .github\workflows\build-push-windows.yml
 		.github\workflows\ci.yml = .github\workflows\ci.yml
 		.github\workflows\create-release.yml = .github\workflows\create-release.yml
-		.github\workflows\release-created.yml = .github\workflows\release-created.yml
 		.github\workflows\pull-web-client.yml = .github\workflows\pull-web-client.yml
+		.github\workflows\release-created.yml = .github\workflows\release-created.yml
+		.github\workflows\tests.yml = .github\workflows\tests.yml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MacroDeck.Setup", "MacroDeck.Setup", "{8C1FC7A7-364F-4CE5-B59D-9A7EFC88CFDC}"
@@ -29,6 +32,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{4B
 		Directory.Build.props = Directory.Build.props
 		Directory.Packages.props = Directory.Packages.props
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsUtilsRevamped", "..\Shlop.WindowsUtilsRevamped\WindowsUtilsRevamped.csproj", "{5054EE63-C0C8-6E38-7387-62A142B6B399}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -62,6 +67,14 @@ Global
 		{FE95B83C-1BB5-45C2-8F91-A3CD1B8B6D97}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FE95B83C-1BB5-45C2-8F91-A3CD1B8B6D97}.Release|x64.ActiveCfg = Release|Any CPU
 		{FE95B83C-1BB5-45C2-8F91-A3CD1B8B6D97}.Release|x64.Build.0 = Release|Any CPU
+		{5054EE63-C0C8-6E38-7387-62A142B6B399}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5054EE63-C0C8-6E38-7387-62A142B6B399}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5054EE63-C0C8-6E38-7387-62A142B6B399}.Debug|x64.ActiveCfg = Debug|x64
+		{5054EE63-C0C8-6E38-7387-62A142B6B399}.Debug|x64.Build.0 = Debug|x64
+		{5054EE63-C0C8-6E38-7387-62A142B6B399}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5054EE63-C0C8-6E38-7387-62A142B6B399}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5054EE63-C0C8-6E38-7387-62A142B6B399}.Release|x64.ActiveCfg = Release|x64
+		{5054EE63-C0C8-6E38-7387-62A142B6B399}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
