@@ -1,8 +1,6 @@
-﻿using System.Net;
-using MacroDeck.Server;
+﻿using MacroDeck.Server;
 using MacroDeck.Server.DataTypes;
 using Newtonsoft.Json.Linq;
-using SuchByte.MacroDeck.Configuration;
 using SuchByte.MacroDeck.Device;
 using SuchByte.MacroDeck.Enums;
 using SuchByte.MacroDeck.Extension;
@@ -24,7 +22,7 @@ public static class MacroDeckServer
     public static List<MacroDeckClient> Clients { get; } = new();
 
     public static string QuickSetupToken { get; } = RandomStringGenerator.RandomString(8);
-    
+
     public static void Start(int port)
     {
         DeviceManager.LoadKnownDevices();
@@ -51,7 +49,7 @@ public static class MacroDeckServer
             using var msgBox = new GUI.CustomControls.MessageBox();
             msgBox.ShowDialog(LanguageManager.Strings.Error, LanguageManager.Strings.FailedToStartServer + Environment.NewLine + ex.Message, MessageBoxButtons.OK);
         }
-        
+
     }
 
     private static void WebSocketHandlerOnMessageReceived(object? sender, string message)
@@ -67,7 +65,7 @@ public static class MacroDeckServer
         {
             return;
         }
-        
+
         OnMessage(macroDeckClient, message);
     }
 
@@ -77,7 +75,7 @@ public static class MacroDeckServer
         {
             return;
         }
-        
+
         var macroDeckClient = new MacroDeckClient(session.Id);
         if (MacroDeck.Configuration.BlockNewConnections ||
             Clients.Count >= 10 ||
@@ -103,7 +101,7 @@ public static class MacroDeckServer
         {
             return;
         }
-        
+
         Clients.Remove(macroDeckClient);
         MacroDeckLogger.Info(macroDeckClient.ClientId + " connection closed");
         OnDeviceConnectionStateChanged?.Invoke(macroDeckClient, EventArgs.Empty);
@@ -118,7 +116,7 @@ public static class MacroDeckServer
         MacroDeckLogger.Info("Close connection to " + macroDeckClient.ClientId);
         Task.Run(async () => await WebSocketHandler.Close(macroDeckClient.SessionId));
     }
-        
+
 
     private static void OnMessage(MacroDeckClient macroDeckClient, string jsonMessageString)
     {
@@ -160,7 +158,7 @@ public static class MacroDeckServer
                         return;
                     }
                 }
-                
+
                 if (DeviceManager.GetMacroDeckDevice(macroDeckClient.ClientId) == null)
                 {
                     return;
@@ -264,7 +262,7 @@ public static class MacroDeckServer
     {
         macroDeckClient.Profile = macroDeckProfile;
         macroDeckClient.DeviceMessage.SendConfiguration(macroDeckClient);
-            
+
         SetFolder(macroDeckClient, macroDeckProfile.Folders[0]);
     }
 

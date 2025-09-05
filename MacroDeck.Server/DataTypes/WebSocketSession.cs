@@ -48,12 +48,12 @@ public class WebSocketSession : IDisposable
             Disconnected?.Invoke(this, EventArgs.Empty);
         }
     }
-    
+
     private async Task<string?> ReceiveStringAsync()
     {
         var buffer = new byte[1024 * 4];
         var receivedMessage = new StringBuilder();
-        
+
         WebSocketReceiveResult result;
         do
         {
@@ -61,10 +61,10 @@ public class WebSocketSession : IDisposable
             {
                 return null;
             }
-            
+
             var arraySegment = new ArraySegment<byte>(buffer);
             result = await _webSocket.ReceiveAsync(arraySegment, CancellationToken.None);
-            
+
             if (result.MessageType is not WebSocketMessageType.Text and not WebSocketMessageType.Close)
             {
                 throw new InvalidOperationException();
@@ -103,7 +103,7 @@ public class WebSocketSession : IDisposable
     {
         await SendMessage(Encoding.UTF8.GetBytes(message));
     }
-    
+
     private async Task SendMessage(byte[] data)
     {
         await _webSocket.SendAsync(

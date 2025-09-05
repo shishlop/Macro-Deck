@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
-using SuchByte.MacroDeck.GUI.CustomControls;
+﻿using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.Language;
 using SuchByte.MacroDeck.Plugins;
 using SuchByte.MacroDeck.Properties;
@@ -28,13 +26,13 @@ public partial class ActionConfigurator : DialogForm
         AddPlugins();
         if (Action is null)
         {
-            
+
             return;
         }
         foreach (var plugin in from plugin in PluginManager.Plugins.Values
-                 from macroDeckAction in plugin.Actions.Where(macroDeckAction =>
-                     macroDeckAction.GetType() == Action.GetType())
-                 select plugin)
+                               from macroDeckAction in plugin.Actions.Where(macroDeckAction =>
+                                   macroDeckAction.GetType() == Action.GetType())
+                               select plugin)
         {
             SetExpand(plugin, true);
             foreach (Control item in pluginsList.Controls)
@@ -43,7 +41,7 @@ public partial class ActionConfigurator : DialogForm
                 {
                     continue;
                 }
-                    
+
                 if (actionItem.PluginAction.GetType() == Action.GetType())
                 {
                     ActionConfiguratorActionItem_MouseClick(actionItem, new MouseEventArgs(MouseButtons.Left, 1, 0, 0, 0));
@@ -70,7 +68,8 @@ public partial class ActionConfigurator : DialogForm
                     SetExpand((item as ActionConfiguratorActionItem).Plugin, true);
                 }
             }
-        } else
+        }
+        else
         {
             foreach (Control item in pluginsList.Controls)
             {
@@ -80,7 +79,7 @@ public partial class ActionConfigurator : DialogForm
             }
         }
     }
-        
+
     private void AddPlugins()
     {
         foreach (Control item in pluginsList.Controls)
@@ -88,7 +87,8 @@ public partial class ActionConfigurator : DialogForm
             if (item is ActionConfiguratorActionItem)
             {
                 item.MouseClick -= ActionConfiguratorActionItem_MouseClick;
-            } else if (item is ActionConfiguratorPluginItem)
+            }
+            else if (item is ActionConfiguratorPluginItem)
             {
                 item.MouseClick -= ActionConfiguratorPluginItem_MouseClick;
             }
@@ -154,7 +154,7 @@ public partial class ActionConfigurator : DialogForm
     {
         var actionConfiguratorPluginItem = sender as ActionConfiguratorPluginItem;
         SetExpand(actionConfiguratorPluginItem, !actionConfiguratorPluginItem.Selected);
-            
+
     }
 
     private void SetExpand(ActionConfiguratorPluginItem actionConfiguratorPluginItem, bool expand)

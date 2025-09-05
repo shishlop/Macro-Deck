@@ -1,8 +1,7 @@
-﻿using System.Net;
+﻿using SuchByte.MacroDeck.Language;
+using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
-using System.Windows.Forms;
-using SuchByte.MacroDeck.Language;
 
 namespace SuchByte.MacroDeck.GUI.InitialSetupPages;
 
@@ -38,7 +37,8 @@ public partial class SetupPage2 : UserControl
                 this.adapter.Items.Add(adapter.Name);
             }
             this.adapter.Text = GetAdapterFromIPAddress(GetDefaultIPAddress().ToString());
-        } catch { }   
+        }
+        catch { }
     }
 
     private void Adapter_SelectedIndexChanged(object sender, EventArgs e)
@@ -46,7 +46,8 @@ public partial class SetupPage2 : UserControl
         if (adapter.SelectedItem.ToString().Equals("All"))
         {
             iPAddress.Text = "0.0.0.0";
-        } else
+        }
+        else
         {
             iPAddress.Text = GetIPAddressFromAdapter(adapter.SelectedItem.ToString());
         }

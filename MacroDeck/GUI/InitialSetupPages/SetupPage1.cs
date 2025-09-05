@@ -1,5 +1,4 @@
-﻿using System.Windows.Forms;
-using SuchByte.MacroDeck.Language;
+﻿using SuchByte.MacroDeck.Language;
 
 namespace SuchByte.MacroDeck.GUI.InitialSetupPages;
 
@@ -15,7 +14,7 @@ public partial class SetupPage1 : UserControl
         lblSelectLanguage.Text = LanguageManager.Strings.InitialSetupSelectLanguage;
     }
 
-       
+
 
     private void Languages_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -32,6 +31,6 @@ public partial class SetupPage1 : UserControl
         }
         languages.SelectedItem = LanguageManager.Strings.__Language__;
         languages.SelectedIndexChanged += Languages_SelectedIndexChanged;
-            
+
     }
 }

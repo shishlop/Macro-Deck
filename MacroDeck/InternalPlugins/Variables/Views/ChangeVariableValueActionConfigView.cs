@@ -1,5 +1,4 @@
-﻿using System.Windows.Forms;
-using SuchByte.MacroDeck.GUI.CustomControls;
+﻿using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.GUI.Dialogs;
 using SuchByte.MacroDeck.InternalPlugins.Variables.Enums;
 using SuchByte.MacroDeck.Language;
@@ -78,7 +77,7 @@ public partial class ChangeVariableValueActionConfigView : ActionConfigControl
                     suggestions.AddRange(variable.Suggestions);
                     value.SetAutoCompleteCustomSource(suggestions);
                 }
-                   
+
 
             }
         }
@@ -125,7 +124,7 @@ public partial class ChangeVariableValueActionConfigView : ActionConfigControl
         }
     }
 
-        
+
 
     private void ChangeVariableValueConfigurator_Load(object sender, EventArgs e)
     {

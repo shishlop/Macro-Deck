@@ -1,13 +1,13 @@
-﻿using System.Net.WebSockets;
-using MacroDeck.Server.DataTypes;
+﻿using MacroDeck.Server.DataTypes;
+using System.Net.WebSockets;
 
 namespace MacroDeck.Server;
 
 public class WebSocketHandler
 {
     public static event EventHandler<string>? MessageReceived;
-    public static event EventHandler? SessionConnected; 
-    public static event EventHandler? SessionDisconnected; 
+    public static event EventHandler? SessionConnected;
+    public static event EventHandler? SessionDisconnected;
 
     private static List<WebSocketSession> ClientSessions { get; } = new();
 
@@ -47,16 +47,16 @@ public class WebSocketHandler
         SessionConnected?.Invoke(session, EventArgs.Empty);
         await session.Start();
     }
-    
+
     private static void SessionOnDisconnected(object? sender, EventArgs e)
     {
         if (sender is not WebSocketSession session)
         {
             return;
         }
-        
+
         SessionDisconnected?.Invoke(session, EventArgs.Empty);
-        
+
         session.TextMessageReceived -= SessionOnTextMessageReceived;
         session.Disconnected -= SessionOnDisconnected;
         session.Dispose();
@@ -69,7 +69,7 @@ public class WebSocketHandler
         {
             return;
         }
-        
+
         MessageReceived?.Invoke(session, message);
     }
 

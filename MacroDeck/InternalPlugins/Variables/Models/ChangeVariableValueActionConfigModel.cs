@@ -1,7 +1,7 @@
-﻿using System.Text.Json;
-using System.Text.Json.Serialization;
-using SuchByte.MacroDeck.InternalPlugins.Variables.Enums;
+﻿using SuchByte.MacroDeck.InternalPlugins.Variables.Enums;
 using SuchByte.MacroDeck.Models;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace SuchByte.MacroDeck.InternalPlugins.Variables.Models;
 

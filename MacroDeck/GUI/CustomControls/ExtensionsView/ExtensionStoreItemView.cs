@@ -5,8 +5,6 @@ using SuchByte.MacroDeck.Models;
 using SuchByte.MacroDeck.Plugins;
 using SuchByte.MacroDeck.Utils;
 using System.Diagnostics;
-using System.Drawing;
-using System.Threading;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls.ExtensionsView;
 

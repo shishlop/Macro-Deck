@@ -1,21 +1,19 @@
-﻿using System.Diagnostics;
-using System.Drawing;
-using System.Text.RegularExpressions;
-using System.Windows.Forms;
-using FastColoredTextBoxNS;
+﻿using FastColoredTextBoxNS;
 using FastColoredTextBoxNS.Types;
 using SuchByte.MacroDeck.CottleIntegration;
 using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.Language;
 using SuchByte.MacroDeck.Variables;
 using System.ComponentModel;
+using System.Diagnostics;
+using System.Text.RegularExpressions;
 
 namespace SuchByte.MacroDeck.GUI.Dialogs;
 
 public partial class TemplateEditor : DialogForm
 {
     private const string TrimBlankNewLine = TemplateManager.TemplateTrimBlank + "\r\n";
-    
+
     private readonly TextStyle functionStyle = new(Brushes.DarkKhaki, null, FontStyle.Regular);
     private readonly TextStyle commentStyle = new(Brushes.Green, null, FontStyle.Regular);
     private readonly TextStyle operatorStyle = new(Brushes.SteelBlue, null, FontStyle.Regular);
@@ -33,12 +31,12 @@ public partial class TemplateEditor : DialogForm
     private bool HasTrimBlank => TemplateManager.HasTrimBlank(Template);
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public string Template 
-    { 
+    public string Template
+    {
         get => template.Text;
         set => template.Text = value;
     }
-    
+
     private List<Variable> Variables { get; }
 
     public TemplateEditor(string template = "")
@@ -49,10 +47,10 @@ public partial class TemplateEditor : DialogForm
         lblResultLabel.Text = LanguageManager.Strings.Result;
         btnVariables.Text = LanguageManager.Strings.Variable;
         checkTrimBlankLines.Text = LanguageManager.Strings.TrimBlankLines;
-        
+
         Variables = VariableManager.ListVariables.ToList();
         var variablesList = VariableManager.ListVariables.Select(v => v.Name).ToArray();
-        
+
         variableRegex = new Regex(@$"\b(?x: {string.Join(" | ", variablesList)})\b", RegexOptions.Singleline | RegexOptions.Compiled);
 
         autocompleteMenu.Items.SetAutocompleteItems(TemplateManager.AllKeywords.Concat(variablesList).ToArray());
@@ -84,10 +82,10 @@ public partial class TemplateEditor : DialogForm
         range.SetStyle(variableStyle, variableRegex);
         range.SetStyle(specialStyle, specialRegex);
     }
-        
+
     private void Insert(string str)
     {
-        var selectionIndex = template.SelectionStart ;
+        var selectionIndex = template.SelectionStart;
         Template = Template.Insert(selectionIndex, str);
         template.SelectionStart = selectionIndex;
         template.SelectionLength = str.Length;
@@ -112,7 +110,7 @@ public partial class TemplateEditor : DialogForm
     {
         Insert("{not(1 = 2)}");
     }
-    
+
     private void BtnVariables_Click(object sender, EventArgs e)
     {
         variablesContextMenu.Items.Clear();

@@ -1,7 +1,4 @@
-﻿using System.Drawing;
-using System.Drawing.Text;
-using System.Windows.Forms;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using SuchByte.MacroDeck.ActionButton;
 using SuchByte.MacroDeck.CottleIntegration;
 using SuchByte.MacroDeck.Events;
@@ -17,6 +14,7 @@ using SuchByte.MacroDeck.Profiles;
 using SuchByte.MacroDeck.Server;
 using SuchByte.MacroDeck.Utils;
 using SuchByte.MacroDeck.Variables;
+using System.Drawing.Text;
 
 namespace SuchByte.MacroDeck.GUI;
 

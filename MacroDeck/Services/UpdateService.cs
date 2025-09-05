@@ -1,15 +1,14 @@
-﻿using System.Diagnostics;
-using System.IO;
-using System.Net.Http;
-using System.Net.Http.Json;
-using System.Threading;
-using SuchByte.MacroDeck.DataTypes.FileDownloader;
+﻿using SuchByte.MacroDeck.DataTypes.FileDownloader;
 using SuchByte.MacroDeck.DataTypes.Updater;
 using SuchByte.MacroDeck.Enums;
 using SuchByte.MacroDeck.Extension;
 using SuchByte.MacroDeck.Logging;
 using SuchByte.MacroDeck.Startup;
 using SuchByte.MacroDeck.Utils;
+using System.Diagnostics;
+using System.IO;
+using System.Net.Http;
+using System.Net.Http.Json;
 
 namespace SuchByte.MacroDeck.Services;
 
@@ -22,22 +21,22 @@ public class UpdateService : IDisposable
         _instance ??= new UpdateService();
         return _instance;
     }
-    
+
     public const PlatformIdentifier PlatformIdentifier = Enums.PlatformIdentifier.WinX64;
     private const string UpdateServiceApiUrl = "https://update.api.macro-deck.app/v2";
-    
+
     public event EventHandler<UpdateApiVersionInfo>? UpdateAvailable;
 
     private readonly CancellationTokenSource _cancellationTokenSource = new();
     private readonly SemaphoreSlim _checkSemaphoreSlim = new(1);
     private readonly SemaphoreSlim _downloadSemaphoreSlim = new(1);
-    
+
     public UpdateApiVersionInfo? VersionInfo { get; set; }
 
     public void StartPeriodicalUpdateCheck()
     {
         var cancellationToken = _cancellationTokenSource.Token;
-        Task.Run(async() => await DoWork(cancellationToken), cancellationToken);
+        Task.Run(async () => await DoWork(cancellationToken), cancellationToken);
     }
 
     public void Dispose()
@@ -45,7 +44,7 @@ public class UpdateService : IDisposable
         _cancellationTokenSource.Cancel();
         GC.SuppressFinalize(this);
     }
-    
+
     public async Task<UpdateApiVersionInfo?> CheckForUpdatesAsync(CancellationToken cancellationToken)
     {
         var checkUrl = $"{UpdateServiceApiUrl}/versions/check/{MacroDeck.Version.ToString()}/{PlatformIdentifier}";
@@ -55,7 +54,7 @@ public class UpdateService : IDisposable
         }
 
         await _checkSemaphoreSlim.WaitAsync(cancellationToken);
-        
+
         using var httpClient = new HttpClient();
         try
         {
@@ -65,7 +64,7 @@ public class UpdateService : IDisposable
             {
                 throw new InvalidOperationException("Result was null");
             }
-        
+
             if (!result.NewerVersionAvailable.Value && VersionInfo == result.Version)
             {
                 return null;
@@ -92,9 +91,9 @@ public class UpdateService : IDisposable
         try
         {
             var versionFileInfo = updateApiVersionInfo.Platforms?[PlatformIdentifier];
-            var destinationPath = 
+            var destinationPath =
                 await DownloadUpdate(versionFileInfo?.DownloadUrl, updateApiVersionInfo.Version, progress);
-            
+
             await VerifyDownloadedFile(destinationPath, versionFileInfo);
             StartInstallation(destinationPath!);
         }
@@ -129,7 +128,7 @@ public class UpdateService : IDisposable
             {
                 MacroDeckLogger.Error($"Failed to automatically check for updates\n{ex}");
             }
-            
+
             Thread.Sleep(TimeSpan.FromMinutes(30));
         } while (!cancellationToken.IsCancellationRequested);
     }

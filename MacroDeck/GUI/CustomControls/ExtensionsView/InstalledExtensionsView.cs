@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
-using SuchByte.MacroDeck.Extension;
+﻿using SuchByte.MacroDeck.Extension;
 using SuchByte.MacroDeck.ExtensionStore;
 using SuchByte.MacroDeck.Icons;
 using SuchByte.MacroDeck.Language;
@@ -92,7 +90,8 @@ public partial class InstalledExtensionsView : UserControl
     private void ExtensionStoreHelper_OnInstallationFinished(object sender, EventArgs e)
     {
         if (!IsHandleCreated || IsDisposed) return;
-        Invoke(() => {
+        Invoke(() =>
+        {
             try
             {
                 ListInstalledExtensions();
@@ -114,14 +113,15 @@ public partial class InstalledExtensionsView : UserControl
                 ListInstalledExtensions();
             }
         });
-    } 
+    }
 
     private void BtnCheckUpdates_Click(object sender, EventArgs e)
     {
         if (PluginManager.PluginsUpdateAvailable.Count - PluginManager.UpdatedPlugins.Count > 0 || IconManager.IconPacksUpdateAvailable.Count > 0)
         {
             ExtensionStoreHelper.UpdateAllPackages();
-        } else
+        }
+        else
         {
             btnCheckUpdates.Spinner = true;
             btnCheckUpdates.Enabled = false;

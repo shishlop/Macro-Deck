@@ -1,13 +1,12 @@
-﻿using System.IO;
-using System.Media;
-using System.Windows.Forms;
-using MacroDeck.Server;
+﻿using MacroDeck.Server;
 using Newtonsoft.Json;
 using SuchByte.MacroDeck.GUI.Dialogs;
 using SuchByte.MacroDeck.Logging;
 using SuchByte.MacroDeck.Profiles;
 using SuchByte.MacroDeck.Server;
 using SuchByte.MacroDeck.Startup;
+using System.IO;
+using System.Media;
 
 namespace SuchByte.MacroDeck.Device;
 
@@ -75,10 +74,10 @@ public class DeviceManager
         return false;
     }
 
-    public static MacroDeckDevice? GetMacroDeckDevice(string clientId) => 
+    public static MacroDeckDevice? GetMacroDeckDevice(string clientId) =>
         _macroDeckDevices.FirstOrDefault(macroDeckDevice => macroDeckDevice.ClientId.Equals(clientId));
 
-    public static MacroDeckDevice? GetMacroDeckDeviceByDisplayName(string displayName) => 
+    public static MacroDeckDevice? GetMacroDeckDeviceByDisplayName(string displayName) =>
         _macroDeckDevices.FirstOrDefault(macroDeckDevice => macroDeckDevice.DisplayName.Equals(displayName));
 
     public static void SetProfile(MacroDeckDevice macroDeckDevice, MacroDeckProfile macroDeckProfile)
@@ -127,7 +126,7 @@ public class DeviceManager
         SaveKnownDevices();
     }
 
-    public static bool IsDisplayNameAvailable(string displayName) => 
+    public static bool IsDisplayNameAvailable(string displayName) =>
         !(_macroDeckDevices.FindAll(macroDeckDevice => macroDeckDevice.DisplayName.Equals(displayName)).Count > 0);
 
     public static List<MacroDeckDevice> GetKnownDevices() => _macroDeckDevices; // TODO: Array
@@ -207,7 +206,7 @@ public class DeviceManager
         }
 
         Task.Run(async () => await WebSocketHandler.Close(macroDeckClient.SessionId));
-        
+
         if (newConnectionDialog.Blocked)
         {
             var macroDeckDevice = new MacroDeckDevice

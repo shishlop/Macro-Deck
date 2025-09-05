@@ -1,8 +1,7 @@
-﻿using System.Diagnostics;
+﻿using SuchByte.MacroDeck.DataTypes.FileDownloader;
+using System.Diagnostics;
 using System.IO;
 using System.Net.Http;
-using System.Threading;
-using SuchByte.MacroDeck.DataTypes.FileDownloader;
 
 namespace SuchByte.MacroDeck.Utils;
 
@@ -17,7 +16,7 @@ public class FileDownloader
         {
             File.Delete(destinationFileName);
         }
-        
+
         using var httpClient = new HttpClient();
         using var response = await httpClient.GetAsync(url, HttpCompletionOption.ResponseHeadersRead);
         response.EnsureSuccessStatusCode();
@@ -37,7 +36,7 @@ public class FileDownloader
         var stopwatch = new Stopwatch();
         stopwatch.Start();
 
-        while ((bytesRead = await contentStream.ReadAsync(buffer)) != 0 
+        while ((bytesRead = await contentStream.ReadAsync(buffer)) != 0
                && cancellationToken?.IsCancellationRequested != true)
         {
             await fileStream.WriteAsync(buffer.AsMemory(0, bytesRead));
@@ -47,7 +46,7 @@ public class FileDownloader
             {
                 continue;
             }
-            
+
             var downloadSpeed = bytesDownloaded / stopwatch.Elapsed.TotalSeconds;
             progress.Report(new DownloadProgressInfo
             {
@@ -59,7 +58,7 @@ public class FileDownloader
         }
         stopwatch.Stop();
     }
-    
+
     public static async Task<MemoryStream> DownloadImageAsync(string url, CancellationToken cancellationToken)
     {
         using var httpClient = new HttpClient();
@@ -69,7 +68,7 @@ public class FileDownloader
         var imageStream = new MemoryStream();
         await response.Content.CopyToAsync(imageStream, cancellationToken);
         imageStream.Position = 0;
-        
+
         return imageStream;
     }
 

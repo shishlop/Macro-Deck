@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls;
 
@@ -17,7 +15,8 @@ public sealed partial class ContentSelectorButton : PictureBox
     }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public bool Selected { 
+    public bool Selected
+    {
         get => _selected;
         set
         {

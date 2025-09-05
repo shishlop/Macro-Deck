@@ -1,5 +1,5 @@
-﻿using System.Text.Json;
-using SuchByte.MacroDeck.Models;
+﻿using SuchByte.MacroDeck.Models;
+using System.Text.Json;
 
 namespace SuchByte.MacroDeck.InternalPlugins.DevicePlugin.Models;
 

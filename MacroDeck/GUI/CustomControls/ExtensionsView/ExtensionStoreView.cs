@@ -1,10 +1,8 @@
-﻿using System.Net.Http;
-using System.Net.Http.Json;
-using System.Threading;
-using System.Windows.Forms;
-using SuchByte.MacroDeck.Logging;
+﻿using SuchByte.MacroDeck.Logging;
 using SuchByte.MacroDeck.Models;
 using SuchByte.MacroDeck.Properties;
+using System.Net.Http;
+using System.Net.Http.Json;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls.ExtensionsView;
 

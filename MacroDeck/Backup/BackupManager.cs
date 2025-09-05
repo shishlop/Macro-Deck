@@ -1,11 +1,10 @@
-﻿using System.IO;
-using System.IO.Compression;
-using System.Text.Json;
-using System.Windows.Forms;
-using SuchByte.MacroDeck.Backup;
+﻿using SuchByte.MacroDeck.Backup;
 using SuchByte.MacroDeck.Logging;
 using SuchByte.MacroDeck.Startup;
 using SuchByte.MacroDeck.Utils;
+using System.IO;
+using System.IO.Compression;
+using System.Text.Json;
 using MessageBox = SuchByte.MacroDeck.GUI.CustomControls.MessageBox;
 
 namespace SuchByte.MacroDeck.Backups;
@@ -23,8 +22,8 @@ public class BackupManager
     public static event EventHandler BackupSaved;
     public static event EventHandler<BackupFailedEventArgs> BackupFailed;
     public static event EventHandler DeleteSuccess;
-        
-        
+
+
     public static List<MacroDeckBackupInfo> GetBackups()
     {
         var backups = new List<MacroDeckBackupInfo>();
@@ -193,7 +192,9 @@ public class BackupManager
             File.WriteAllText(Path.Combine(restoreDirectory, ".restore"), backupInfoSerialized);
 
             MacroDeck.RestartMacroDeck("--show");
-        } catch (Exception ex) {
+        }
+        catch (Exception ex)
+        {
 
             MacroDeckLogger.Error("Backup restoration failed: " + ex.Message + Environment.NewLine + ex.StackTrace);
         }
@@ -224,7 +225,7 @@ public class BackupManager
         {
             MacroDeckLogger.Error("Backup creation failed: " + ex.Message + Environment.NewLine + ex.StackTrace);
             BackupFailed?.Invoke(null, new BackupFailedEventArgs { Message = ex.Message });
-        } 
+        }
         finally
         {
             BackupInProgress = false;
@@ -279,7 +280,8 @@ public class BackupManager
                 File.Delete(fileName);
                 MacroDeckLogger.Info("Backup successfully deleted: " + fileName);
                 DeleteSuccess?.Invoke(null, EventArgs.Empty);
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MacroDeckLogger.Error("Backup deletion failed: " + ex.Message + Environment.NewLine + ex.StackTrace);
             }

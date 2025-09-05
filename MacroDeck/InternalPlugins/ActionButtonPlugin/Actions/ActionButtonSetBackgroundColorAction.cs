@@ -1,5 +1,4 @@
-﻿using System.Drawing;
-using SuchByte.MacroDeck.GUI;
+﻿using SuchByte.MacroDeck.GUI;
 using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.InternalPlugins.ActionButtonPlugin.Enums;
 using SuchByte.MacroDeck.InternalPlugins.ActionButtonPlugin.Models;
@@ -21,7 +20,7 @@ public class ActionButtonSetBackgroundColorAction : PluginAction
     public override void Trigger(string clientId, ActionButton.ActionButton actionButton)
     {
         var configModel = ActionButtonSetBackgroundColorActionConfigModel.Deserialize(Configuration);
-        var color = Color.FromArgb(35,35,35);
+        var color = Color.FromArgb(35, 35, 35);
         switch (configModel.Method)
         {
             case SetBackgroundColorMethod.Fixed:
@@ -35,7 +34,8 @@ public class ActionButtonSetBackgroundColorAction : PluginAction
         if (actionButton.State)
         {
             actionButton.BackColorOn = color;
-        } else
+        }
+        else
         {
             actionButton.BackColorOff = color;
         }

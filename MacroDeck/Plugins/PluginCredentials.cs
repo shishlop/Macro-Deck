@@ -1,8 +1,8 @@
-﻿using System.IO;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using SuchByte.MacroDeck.Logging;
 using SuchByte.MacroDeck.Startup;
 using SuchByte.MacroDeck.Utils;
+using System.IO;
 
 namespace SuchByte.MacroDeck.Plugins;
 
@@ -65,7 +65,7 @@ public class PluginCredentials
 
         List<Dictionary<string, string>> pluginCredentials = new();
         pluginCredentials.Add(keyValuePairsEncrypted);
-        
+
         Save(plugin, pluginCredentials);
     }
 
@@ -84,7 +84,7 @@ public class PluginCredentials
         {
             return pluginCredentialsDecrypted;
         }
-        
+
         foreach (var pluginCredentialEncrypted in pluginCredentialsEncrypted)
         {
             var pluginCredentialDecrypted = new Dictionary<string, string>();
@@ -114,12 +114,12 @@ public class PluginCredentials
         {
             return new();
         }
-        
-        return  JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(
-            File.ReadAllText(FilePath(plugin)), 
+
+        return JsonConvert.DeserializeObject<List<Dictionary<string, string>>>(
+            File.ReadAllText(FilePath(plugin)),
             new JsonSerializerSettings
-                {
-                    TypeNameHandling = TypeNameHandling.Auto,
-                });
+            {
+                TypeNameHandling = TypeNameHandling.Auto,
+            });
     }
 }

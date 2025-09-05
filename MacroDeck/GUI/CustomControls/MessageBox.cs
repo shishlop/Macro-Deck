@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
-using SuchByte.MacroDeck.Language;
+﻿using SuchByte.MacroDeck.Language;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls;
 
@@ -60,7 +58,7 @@ public partial class MessageBox : DialogForm
                     DialogResult = DialogResult.Yes;
                     Close();
                 };
-                    
+
                 buttonMessageBoxPanel.Controls.Add(btnNo);
                 buttonMessageBoxPanel.Controls.Add(btnYes);
                 break;

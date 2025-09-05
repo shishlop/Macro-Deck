@@ -1,8 +1,4 @@
-﻿using System.Drawing;
-using System.Globalization;
-using System.IO;
-using System.Timers;
-using SuchByte.MacroDeck.CottleIntegration;
+﻿using SuchByte.MacroDeck.CottleIntegration;
 using SuchByte.MacroDeck.Events;
 using SuchByte.MacroDeck.GUI;
 using SuchByte.MacroDeck.GUI.CustomControls;
@@ -17,6 +13,8 @@ using SuchByte.MacroDeck.Utils;
 using SuchByte.MacroDeck.Variables.Plugin.GUI;
 using SuchByte.MacroDeck.Variables.Plugin.Models;
 using SuchByte.MacroDeck.Variables.Plugin.Views;
+using System.Globalization;
+using System.IO;
 using Timer = System.Timers.Timer;
 
 namespace SuchByte.MacroDeck.Variables.Plugin; // Don't change because of backwards compatibility!
@@ -74,8 +72,9 @@ public class VariableChangedEvent : IMacroDeckEvent
     public string Name => "Variable changed";
 
     public EventHandler<MacroDeckEventArgs> OnEvent { get; set; }
-    public List<string> ParameterSuggestions {
-        get 
+    public List<string> ParameterSuggestions
+    {
+        get
         {
             var variables = new List<string>();
             foreach (var variable in VariableManager.ListVariables)
@@ -83,7 +82,8 @@ public class VariableChangedEvent : IMacroDeckEvent
                 variables.Add(variable.Name);
             }
             return variables;
-        } set { }
+        }
+        set { }
     }
 
     public void Trigger(object sender)
@@ -172,7 +172,8 @@ public class SaveVariableToFileAction : PluginAction
         if (variable == null)
         {
             variableValue = "Variable not found";
-        } else
+        }
+        else
         {
             variableValue = variable.Value;
         }
@@ -181,8 +182,9 @@ public class SaveVariableToFileAction : PluginAction
             Retry.Do(() =>
             {
                 File.WriteAllText(filePath, variableValue);
-            }); 
-        } catch (Exception ex)
+            });
+        }
+        catch (Exception ex)
         {
             MacroDeckLogger.Error(typeof(VariablesPlugin), $"Failed to save variable value to file: {ex.Message}");
         }

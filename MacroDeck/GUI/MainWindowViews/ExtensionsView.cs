@@ -1,5 +1,4 @@
-﻿using System.Windows.Forms;
-using SuchByte.MacroDeck.GUI.CustomControls.ExtensionsView;
+﻿using SuchByte.MacroDeck.GUI.CustomControls.ExtensionsView;
 using SuchByte.MacroDeck.Language;
 
 namespace SuchByte.MacroDeck.GUI.MainWindowViews;

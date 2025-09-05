@@ -1,7 +1,7 @@
 ﻿using SuchByte.MacroDeck.Logging;
+using SuchByte.MacroDeck.Pipe;
 using SuchByte.MacroDeck.Startup;
 using System.Diagnostics;
-using SuchByte.MacroDeck.Pipe;
 
 namespace SuchByte.MacroDeck;
 
@@ -23,9 +23,9 @@ internal class Program
 
         var startParameters = StartParameters.ParseParameters(args);
         CheckRunningInstance(startParameters.IgnorePidCheck).Wait();
-        
+
         ApplicationPaths.Initialize(startParameters.PortableMode);
-        
+
         MacroDeck.Start(startParameters);
     }
 
@@ -39,7 +39,7 @@ internal class Program
         {
             return;
         }
-        
+
         if (await MacroDeckPipeClient.SendShowMainWindowMessage())
         {
             Environment.Exit(0);

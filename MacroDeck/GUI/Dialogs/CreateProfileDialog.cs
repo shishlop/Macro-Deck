@@ -1,5 +1,4 @@
-﻿using System.Windows.Forms;
-using SuchByte.MacroDeck.GUI.CustomControls;
+﻿using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.Language;
 using SuchByte.MacroDeck.Profiles;
 using MessageBox = SuchByte.MacroDeck.GUI.CustomControls.MessageBox;
@@ -36,7 +35,8 @@ public partial class CreateProfileDialog : DialogForm
 
 
             Profile = ProfileManager.CreateProfile(profileName.Text);
-        } else
+        }
+        else
         {
             Profile.DisplayName = profileName.Text;
             ProfileManager.Save();

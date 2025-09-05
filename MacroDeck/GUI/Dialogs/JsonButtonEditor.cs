@@ -1,5 +1,4 @@
-﻿using System.Windows.Forms;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.Logging;
 using System.ComponentModel;
@@ -14,9 +13,10 @@ public partial class JsonButtonEditor : DialogForm
         TypeNameHandling = TypeNameHandling.Auto,
         NullValueHandling = NullValueHandling.Ignore,
         Formatting = Formatting.Indented,
-        Error = (sender, args) => {
+        Error = (sender, args) =>
+        {
             MacroDeckLogger.Warning(typeof(JsonButtonEditor), args.ErrorContext.Error.Message);
-            args.ErrorContext.Handled = true; 
+            args.ErrorContext.Handled = true;
         }
     };
 

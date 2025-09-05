@@ -1,7 +1,5 @@
-﻿using System.Drawing;
+﻿using System.ComponentModel;
 using System.Drawing.Drawing2D;
-using System.Windows.Forms;
-using System.ComponentModel;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls;
 
@@ -30,7 +28,8 @@ public class VerticalTabControl : TabControl
         {
             if (!_notificationIndexes.Contains(tabIndex))
                 _notificationIndexes.Add(tabIndex);
-        } else
+        }
+        else
         {
             if (!_notificationIndexes.Contains(tabIndex))
                 _notificationIndexes.Remove(tabIndex);
@@ -88,7 +87,7 @@ public class VerticalTabControl : TabControl
                 g.FillEllipse(Brushes.Red, buttonRectangle.X + buttonRectangle.Width - 22, buttonRectangle.Y + 6, 10, 10);
             }
 
-                
+
 
             if (ImageList != null)
             {

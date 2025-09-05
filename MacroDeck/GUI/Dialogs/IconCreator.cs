@@ -1,9 +1,7 @@
-﻿using System.Drawing;
-using System.IO;
-using System.Windows.Forms;
-using SuchByte.MacroDeck.GUI.CustomControls;
+﻿using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.Language;
 using SuchByte.MacroDeck.Utils;
+using System.IO;
 
 namespace SuchByte.MacroDeck.GUI.Dialogs;
 
@@ -86,7 +84,7 @@ public partial class IconCreator : DialogForm
         {
             var bitmap = new Bitmap(Path.GetFullPath(openFileDialog.FileName));
             bitmap = new Bitmap(bitmap, new Size(350, 350));
-                    
+
             if (Layers.SelectedItem == null)
             {
                 Layers.SelectedIndex = 0;
@@ -99,7 +97,7 @@ public partial class IconCreator : DialogForm
 
     private Image GetImageByName(string name)
     {
-        foreach(var layerName in _layers.Keys)
+        foreach (var layerName in _layers.Keys)
         {
             if (layerName.Equals(name))
             {

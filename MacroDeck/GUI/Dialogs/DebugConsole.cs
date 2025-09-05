@@ -1,11 +1,9 @@
-﻿using System.Diagnostics;
-using System.Drawing;
-using System.Windows.Forms;
-using SuchByte.MacroDeck.Logging;
+﻿using SuchByte.MacroDeck.Logging;
 using SuchByte.MacroDeck.Notifications;
 using SuchByte.MacroDeck.Plugins;
 using SuchByte.MacroDeck.Properties;
 using SuchByte.MacroDeck.Startup;
+using System.Diagnostics;
 using Form = SuchByte.MacroDeck.GUI.CustomControls.Form;
 
 namespace SuchByte.MacroDeck.GUI.Dialogs;
@@ -110,7 +108,8 @@ public partial class DebugConsole : Form
             {
                 logOutput.SaveFile(saveFileDialog.FileName, RichTextBoxStreamType.PlainText);
                 MacroDeckLogger.Info("Successfully exported debug console output to: " + saveFileDialog.FileName);
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MacroDeckLogger.Error("Error while exporting debug console output: " + ex.Message + Environment.NewLine + ex.StackTrace);
             }

@@ -1,14 +1,13 @@
-﻿using System.Diagnostics;
-using System.IO;
-using SuchByte.MacroDeck.Backups;
+﻿using SuchByte.MacroDeck.Backups;
 using SuchByte.MacroDeck.GUI.CustomControls.Settings;
 using SuchByte.MacroDeck.GUI.Dialogs;
 using SuchByte.MacroDeck.Language;
 using SuchByte.MacroDeck.Logging;
 using SuchByte.MacroDeck.Plugins;
-using SuchByte.MacroDeck.Server;
 using SuchByte.MacroDeck.Services;
 using SuchByte.MacroDeck.Startup;
+using System.Diagnostics;
+using System.IO;
 using MessageBox = SuchByte.MacroDeck.GUI.CustomControls.MessageBox;
 
 namespace SuchByte.MacroDeck.GUI.MainWindowContents;

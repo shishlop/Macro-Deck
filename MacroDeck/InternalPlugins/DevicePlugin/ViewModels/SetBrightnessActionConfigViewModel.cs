@@ -43,7 +43,7 @@ public class SetBrightnessActionConfigViewModel : ISerializableConfigViewModel
         }
         catch (Exception ex)
         {
-            MacroDeckLogger.Error( $"{GetType().Name}: Error while saving config: { ex.Message + Environment.NewLine + ex.StackTrace }");
+            MacroDeckLogger.Error($"{GetType().Name}: Error while saving config: {ex.Message + Environment.NewLine + ex.StackTrace}");
             return false;
         }
         return true;

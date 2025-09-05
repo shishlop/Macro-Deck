@@ -1,9 +1,8 @@
-﻿using System.Drawing;
-using System.Reflection;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using SuchByte.MacroDeck.GUI;
 using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.Properties;
+using System.Reflection;
 
 namespace SuchByte.MacroDeck.Plugins;
 
@@ -13,7 +12,7 @@ public abstract class MacroDeckPlugin
     {
         var executingAssembly = GetType().Assembly;
         Name = executingAssembly.GetName().Name ?? throw new InvalidOperationException();
-        Version = executingAssembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion 
+        Version = executingAssembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion
                   ?? throw new InvalidOperationException();
     }
 
@@ -93,7 +92,7 @@ public abstract class PluginAction
     /// <summary>
     /// Gets called when the action button gets deleted
     /// </summary>
-    public virtual void OnActionButtonDelete(){ }
+    public virtual void OnActionButtonDelete() { }
     /// <summary>
     /// Gets called when the action button is loaded
     /// </summary>

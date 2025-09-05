@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
-using SuchByte.MacroDeck.ActionButton;
+﻿using SuchByte.MacroDeck.ActionButton;
 using SuchByte.MacroDeck.ActionButton.Plugin;
 using SuchByte.MacroDeck.Interfaces;
 using SuchByte.MacroDeck.Language;

@@ -1,12 +1,11 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
 
 namespace SuchByte.MacroDeck.GUI.CustomControls;
 
 public partial class ActionConfigControl : UserControl
 {
-        
+
     /// <summary>
     /// Gets called when the user clicks the "Ok" button in the ActionConfigurator.
     /// Replaces the ActionSave event.

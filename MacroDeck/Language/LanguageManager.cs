@@ -1,7 +1,7 @@
-﻿using System.IO;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using SuchByte.MacroDeck.Logging;
 using SuchByte.MacroDeck.Startup;
+using System.IO;
 
 namespace SuchByte.MacroDeck.Language;
 
@@ -44,7 +44,9 @@ public static class LanguageManager
                     if (_languages.FindAll(l => l.__Language__.Equals(language.__Language__) && l.__LanguageCode__.Equals(language.__LanguageCode__) && l.__Author__.Equals(language.__Author__)).Count > 0) continue;
                     _languages.Add(language);
                 }
-            } catch (Exception ex) {
+            }
+            catch (Exception ex)
+            {
 
                 MacroDeckLogger.Warning("Failed to load language resource: " + ex.Message);
             }

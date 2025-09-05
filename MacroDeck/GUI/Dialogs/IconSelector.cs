@@ -1,8 +1,4 @@
-﻿using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Windows.Forms;
-using ImageMagick;
+﻿using ImageMagick;
 using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.GUI.Dialogs;
 using SuchByte.MacroDeck.Icons;
@@ -11,6 +7,8 @@ using SuchByte.MacroDeck.Logging;
 using SuchByte.MacroDeck.Profiles;
 using SuchByte.MacroDeck.Properties;
 using SuchByte.MacroDeck.Startup;
+using System.Drawing.Imaging;
+using System.IO;
 using Icon = SuchByte.MacroDeck.Icons.Icon;
 using MessageBox = SuchByte.MacroDeck.GUI.CustomControls.MessageBox;
 
@@ -50,7 +48,7 @@ public partial class IconSelector : DialogForm
                 {
                     Width = 100,
                     Height = 100,
-                    BackColor = Color.FromArgb(35,35,35),
+                    BackColor = Color.FromArgb(35, 35, 35),
                     Radius = ProfileManager.CurrentProfile?.ButtonRadius ?? 0,
                     BackgroundImageLayout = ImageLayout.Stretch,
                     BackgroundImage = icon.IconImage
@@ -68,7 +66,7 @@ public partial class IconSelector : DialogForm
                 Invoke(() => iconList.Controls.Add(button));
             });
         }
-        
+
         if (scrollDown && iconList.Controls.Count > 1)
         {
             iconList.ScrollControlIntoView(iconList.Controls[^1]);
@@ -104,17 +102,17 @@ public partial class IconSelector : DialogForm
         {
             return;
         }
-        
+
         var iconPack = IconManager.GetIconPackByName(iconPacksBox.Text);
-        
+
         var isGif = Path.GetExtension(openFileDialog.FileNames.FirstOrDefault())?.ToLower() == "gif";
-        
+
         var iconImportQuality = new IconImportQuality(isGif);
         if (iconImportQuality.ShowDialog() != DialogResult.OK)
         {
             return;
         }
-        
+
         Task.Run(() => SpinnerDialog.SetVisisble(true, this));
         var icons = new List<Image>();
 
@@ -151,7 +149,7 @@ public partial class IconSelector : DialogForm
                                 image.Resize(iconImportQuality.Pixels, iconImportQuality.Pixels);
                                 image.Crop(iconImportQuality.Pixels, iconImportQuality.Pixels);
                             });
-                                                
+
                             using (var ms = new MemoryStream())
                             {
                                 collection.Write(ms);
@@ -160,13 +158,13 @@ public partial class IconSelector : DialogForm
                         }
                         MacroDeckLogger.Trace(GetType(), "Image successfully resized");
                     }
-                    catch (Exception ex) 
+                    catch (Exception ex)
                     {
                         MacroDeckLogger.Error(GetType(), "Failed to resize image: " + ex.Message + Environment.NewLine + ex.StackTrace);
                     }
                 }
             }
-            
+
             openFileDialog.Dispose();
             iconImportQuality.Dispose();
 
@@ -286,7 +284,7 @@ public partial class IconSelector : DialogForm
         using var createIconPackDialog = new CreateIconPack();
         if (createIconPackDialog.ShowDialog() == DialogResult.OK)
         {
-                    
+
             Task.Run(LoadIconPacks);
             iconPacksBox.SelectedItem = createIconPackDialog.IconPackName;
         }
@@ -379,7 +377,8 @@ public partial class IconSelector : DialogForm
                         var imageBytes = File.ReadAllBytes(Path.Combine(ApplicationPaths.TempDirectoryPath, "iconcreator.resized"));
                         using var ms = new MemoryStream(imageBytes);
                         icon = Image.FromStream(ms);
-                    } catch {}
+                    }
+                    catch { }
                     Cursor.Current = Cursors.Default;
                 }
                 var iconPack = IconManager.GetIconPackByName(iconPacksBox.Text);
@@ -389,7 +388,7 @@ public partial class IconSelector : DialogForm
         }
     }
 
-        
+
 
     private void btnDownloadIcon_Click(object sender, EventArgs e)
     {

@@ -18,18 +18,36 @@ public class ConditionAction : PluginAction
     private ConditionType _conditionType = ConditionType.Variable;
     private ConditionMethod _conditionMethod = ConditionMethod.Equals;
     private string _conditionValue2 = "";
-    public List<PluginAction?> Actions { get => _actions;
-        set { _actions = value; UpdateConfiguration(); } }
-    public List<PluginAction?> ActionsElse { get => _actionsElse;
-        set { _actionsElse = value; UpdateConfiguration(); } }
-    public string ConditionValue1Source { get => _conditionValue1Source;
-        set { _conditionValue1Source = value; UpdateConfiguration(); } }
-    public ConditionType ConditionType { get => _conditionType;
-        set { _conditionType = value; UpdateConfiguration(); } }
-    public ConditionMethod ConditionMethod { get => _conditionMethod;
-        set { _conditionMethod = value; UpdateConfiguration(); } }
-    public string ConditionValue2 { get => _conditionValue2;
-        set { _conditionValue2 = value; UpdateConfiguration(); } }
+    public List<PluginAction?> Actions
+    {
+        get => _actions;
+        set { _actions = value; UpdateConfiguration(); }
+    }
+    public List<PluginAction?> ActionsElse
+    {
+        get => _actionsElse;
+        set { _actionsElse = value; UpdateConfiguration(); }
+    }
+    public string ConditionValue1Source
+    {
+        get => _conditionValue1Source;
+        set { _conditionValue1Source = value; UpdateConfiguration(); }
+    }
+    public ConditionType ConditionType
+    {
+        get => _conditionType;
+        set { _conditionType = value; UpdateConfiguration(); }
+    }
+    public ConditionMethod ConditionMethod
+    {
+        get => _conditionMethod;
+        set { _conditionMethod = value; UpdateConfiguration(); }
+    }
+    public string ConditionValue2
+    {
+        get => _conditionValue2;
+        set { _conditionValue2 = value; UpdateConfiguration(); }
+    }
 
     public ConditionAction()
     {
@@ -66,11 +84,12 @@ public class ConditionAction : PluginAction
         try
         {
             configurationString = JObject.Parse(Configuration);
-        } catch
+        }
+        catch
         {
             configurationString = new JObject();
         }
-            
+
 
         var jsonSerializerSettings = new JsonSerializerSettings
         {
@@ -93,7 +112,8 @@ public class ConditionAction : PluginAction
 
     public ActionConfigControl GetActionConfigurator(ActionConfigurator actionConfigurator) { return null; }
 
-    public override void Trigger(string clientId, ActionButton actionButton) {
+    public override void Trigger(string clientId, ActionButton actionButton)
+    {
         var result = false;
         var conditionValue2 = ConditionValue2;
         var variable = VariableManager.ListVariables.FirstOrDefault(v => v.Name == _conditionValue1Source);
@@ -159,12 +179,14 @@ public class ConditionAction : PluginAction
                 break;
         }
 
-        if (result) {
+        if (result)
+        {
             foreach (var action in _actions)
             {
                 action.Trigger(clientId, actionButton);
             }
-        } else
+        }
+        else
         {
             foreach (var action in _actionsElse)
             {

@@ -14,7 +14,7 @@ public static class Sha256Utils
     public static async ValueTask<string> CalculateSha256Hash(Stream stream)
     {
         stream.Position = 0;
-        
+
         var bufferedStream = new BufferedStream(stream);
         using var sha256 = SHA256.Create();
 
@@ -30,7 +30,7 @@ public static class Sha256Utils
         {
             throw new InvalidOperationException("Hash was null");
         }
-        
+
         stream.Position = 0;
         return BitConverter.ToString(sha256.Hash).Replace("-", "").ToLower();
     }

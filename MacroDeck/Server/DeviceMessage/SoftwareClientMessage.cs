@@ -1,10 +1,10 @@
-﻿using System.Collections.Concurrent;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using SuchByte.MacroDeck.Device;
 using SuchByte.MacroDeck.Icons;
 using SuchByte.MacroDeck.JSON;
 using SuchByte.MacroDeck.Logging;
 using SuchByte.MacroDeck.Model;
+using System.Collections.Concurrent;
 
 namespace SuchByte.MacroDeck.Server.DeviceMessage;
 

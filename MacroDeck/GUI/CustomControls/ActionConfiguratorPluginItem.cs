@@ -1,5 +1,4 @@
-﻿using System.Windows.Forms;
-using SuchByte.MacroDeck.Language;
+﻿using SuchByte.MacroDeck.Language;
 using SuchByte.MacroDeck.Plugins;
 using SuchByte.MacroDeck.Properties;
 using System.ComponentModel;
@@ -14,8 +13,8 @@ public partial class ActionConfiguratorPluginItem : RoundedUserControl
     public MacroDeckPlugin Plugin { get; set; }
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public bool Selected 
-    { 
+    public bool Selected
+    {
         get => selected;
         set
         {

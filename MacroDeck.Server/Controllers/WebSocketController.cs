@@ -13,7 +13,7 @@ public class WebSocketController : ControllerBase
         {
             return Redirect("client");
         }
-        
+
         using var webSocket = await HttpContext.WebSockets.AcceptWebSocketAsync();
         await WebSocketHandler.HandleWebSocket(webSocket);
         return Ok();

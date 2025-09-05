@@ -35,7 +35,8 @@ public partial class SetProfileActionConfigView : ActionConfigControl
             if (string.IsNullOrWhiteSpace(_viewModel.ClientId))
             {
                 radioCurrentDevice.Checked = true;
-            } else
+            }
+            else
             {
                 radioFixedDevice.Checked = true;
                 var macroDeckDevice = DeviceManager.GetKnownDevices().Find(x => x.ClientId.Equals(_viewModel.ClientId));
@@ -50,7 +51,8 @@ public partial class SetProfileActionConfigView : ActionConfigControl
             {
                 profilesList.Text = profile.DisplayName;
             }
-        } catch { }
+        }
+        catch { }
     }
 
     private void LoadKnownDevices()
@@ -74,7 +76,8 @@ public partial class SetProfileActionConfigView : ActionConfigControl
         if (radioCurrentDevice.Checked)
         {
             _viewModel.ClientId = "";
-        } else
+        }
+        else
         {
             var macroDeckDevice = DeviceManager.GetKnownDevices().Find(x => x.DisplayName.Equals(devicesList.Text));
             if (macroDeckDevice != null)
@@ -89,7 +92,7 @@ public partial class SetProfileActionConfigView : ActionConfigControl
             _viewModel.ProfileId = profile.ProfileId;
         }
         if ((radioFixedDevice.Checked && string.IsNullOrWhiteSpace(_viewModel.ClientId)) || string.IsNullOrWhiteSpace(_viewModel.ProfileId)) return false;
-            
+
         return _viewModel.SaveConfig();
     }
 

@@ -46,7 +46,7 @@ public class SetProfileAction : PluginAction
                 if (macroDeckDevice == null || profile == null) return;
                 DeviceManager.SetProfile(macroDeckDevice, profile);
                 break;
-        }     
+        }
     }
 
     public override ActionConfigControl GetActionConfigControl(ActionConfigurator actionConfigurator)

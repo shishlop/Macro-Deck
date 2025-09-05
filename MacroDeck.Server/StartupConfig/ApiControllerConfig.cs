@@ -1,6 +1,6 @@
-﻿using System.Text.Json.Serialization;
-using Microsoft.AspNetCore.Mvc.ApplicationParts;
+﻿using Microsoft.AspNetCore.Mvc.ApplicationParts;
 using Microsoft.Extensions.DependencyInjection;
+using System.Text.Json.Serialization;
 
 namespace MacroDeck.Server.StartupConfig;
 

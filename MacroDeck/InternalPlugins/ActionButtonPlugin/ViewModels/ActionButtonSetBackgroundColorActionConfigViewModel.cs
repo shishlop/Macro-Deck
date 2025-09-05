@@ -1,5 +1,4 @@
-﻿using System.Drawing;
-using SuchByte.MacroDeck.InternalPlugins.ActionButtonPlugin.Enums;
+﻿using SuchByte.MacroDeck.InternalPlugins.ActionButtonPlugin.Enums;
 using SuchByte.MacroDeck.InternalPlugins.ActionButtonPlugin.Models;
 using SuchByte.MacroDeck.Language;
 using SuchByte.MacroDeck.Logging;
@@ -45,7 +44,7 @@ public class ActionButtonSetBackgroundColorActionConfigViewModel : ISerializable
         }
         catch (Exception ex)
         {
-            MacroDeckLogger.Error(typeof(ActionButtonSetBackgroundColorActionConfigViewModel), $"Error while saving config: { ex.Message + Environment.NewLine + ex.StackTrace }");
+            MacroDeckLogger.Error(typeof(ActionButtonSetBackgroundColorActionConfigViewModel), $"Error while saving config: {ex.Message + Environment.NewLine + ex.StackTrace}");
         }
         return true;
     }

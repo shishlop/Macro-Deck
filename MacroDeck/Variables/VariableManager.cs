@@ -1,17 +1,16 @@
-﻿using System.Text.RegularExpressions;
-using System.Threading;
-using SQLite;
+﻿using SQLite;
 using SuchByte.MacroDeck.CottleIntegration;
 using SuchByte.MacroDeck.Logging;
 using SuchByte.MacroDeck.Plugins;
 using SuchByte.MacroDeck.Startup;
+using System.Text.RegularExpressions;
 
 namespace SuchByte.MacroDeck.Variables;
 
 public static class VariableManager
 {
     private static SQLiteConnection _database;
-    
+
     internal static event EventHandler OnVariableChanged;
     internal static event EventHandler OnVariableRemoved;
 
@@ -19,7 +18,7 @@ public static class VariableManager
     /// <summary>
     /// Use GetVariables(MacroDeckPlugin macroDeckPlugin)
     /// </summary>
-    internal static TableQuery<Variable> ListVariables => 
+    internal static TableQuery<Variable> ListVariables =>
         _database.Table<Variable>().OrderBy(v => v.Name);
 
     public static Variable[] Variables =>
@@ -39,7 +38,7 @@ public static class VariableManager
             x.Creator == macroDeckPlugin.Name &&
             x.Name.ToLower() == variableName.ToLower());
     }
-    
+
     internal static void InsertVariable(Variable variable)
     {
         if (ListVariables.Any(x => x.Name.ToLower() == variable.Name.ToLower()))
@@ -56,7 +55,7 @@ public static class VariableManager
         {
             return null;
         }
-        
+
         var variable = _database.Table<Variable>().FirstOrDefault(v => v.Name == name);
         if (variable == null)
         {
@@ -136,7 +135,7 @@ public static class VariableManager
 
         return variable;
     }
-        
+
     /// <summary>
     /// Set the value of an variable. If the variable does not exists, Macro Deck automatically creates it.
     /// </summary>
@@ -184,7 +183,7 @@ public static class VariableManager
     {
         MacroDeckLogger.Info(typeof(VariableManager), "Initialize variables database...");
         _database = new SQLiteConnection(ApplicationPaths.VariablesFilePath);
-            
+
         _database.CreateTable<Variable>();
         _database.Table<Variable>().Where(x => x.Name == "").Delete();
         MacroDeckLogger.Info(typeof(VariableManager), ListVariables.Count() + " variables found");
@@ -195,7 +194,8 @@ public static class VariableManager
         try
         {
             _database.Close();
-        } catch { }
+        }
+        catch { }
     }
 
     public static string ConvertNameString(string str)
@@ -209,7 +209,7 @@ public static class VariableManager
         var evaluator = new MatchEvaluator(UmlautsReplacer);
         return regexUmlauts.Replace(str, evaluator);
     }
-    
+
     private static string UmlautsReplacer(Match m)
     {
         return m.Value switch

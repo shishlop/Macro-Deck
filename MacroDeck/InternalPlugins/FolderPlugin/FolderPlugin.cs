@@ -83,7 +83,8 @@ public class GoToParentFolder : PluginAction
                     MacroDeckServer.SetFolder(macroDeckClient, parentFolder);
                     break;
             }
-        } catch { }
+        }
+        catch { }
     }
     public override ActionConfigControl GetActionConfigControl(ActionConfigurator actionConfigurator)
     {
@@ -117,7 +118,7 @@ public class GoToRootFolder : PluginAction
                     MacroDeckServer.SetFolder(macroDeckClient, rootFolder);
                     break;
             }
-                
+
         }
         catch { }
     }

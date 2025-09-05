@@ -1,11 +1,4 @@
-﻿using System.Diagnostics;
-using System.Drawing;
-using System.IO;
-using System.IO.Compression;
-using System.Reflection;
-using System.Windows.Forms;
-using System.Xml.Serialization;
-using SuchByte.MacroDeck.ActionButton;
+﻿using SuchByte.MacroDeck.ActionButton;
 using SuchByte.MacroDeck.ExtensionStore;
 using SuchByte.MacroDeck.Folders.Plugin;
 using SuchByte.MacroDeck.InternalPlugins.DevicePlugin;
@@ -15,6 +8,11 @@ using SuchByte.MacroDeck.Models;
 using SuchByte.MacroDeck.Startup;
 using SuchByte.MacroDeck.Utils;
 using SuchByte.MacroDeck.Variables.Plugin;
+using System.Diagnostics;
+using System.IO;
+using System.IO.Compression;
+using System.Reflection;
+using System.Xml.Serialization;
 using MessageBox = SuchByte.MacroDeck.GUI.CustomControls.MessageBox;
 
 namespace SuchByte.MacroDeck.Plugins;
@@ -153,7 +151,7 @@ public static class PluginManager
                     {
                         continue;
                     }
-                        
+
                     AddPlugin(plugin);
                     PluginDirectories[plugin] = pluginDirectory;
                     // Task.Run(async () =>
@@ -316,7 +314,7 @@ public static class PluginManager
 
                             var plugin = LoadPlugin(extensionManifest, installationDirectory);
                             plugin.Author = extensionManifest.Author;
-                            
+
                             try
                             {
                                 if (plugin != null && plugin.CanConfigure)

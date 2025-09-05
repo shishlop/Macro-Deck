@@ -1,8 +1,7 @@
-﻿using System.IO;
-using System.Windows.Forms;
-using SuchByte.MacroDeck.Backups;
+﻿using SuchByte.MacroDeck.Backups;
 using SuchByte.MacroDeck.GUI.Dialogs;
 using SuchByte.MacroDeck.Language;
+using System.IO;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls.Settings;
 

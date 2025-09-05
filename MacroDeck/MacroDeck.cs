@@ -1,9 +1,3 @@
-using System.Diagnostics;
-using System.IO;
-using System.Net.NetworkInformation;
-using System.Net.Sockets;
-using System.Threading;
-using System.Windows.Forms;
 using SuchByte.MacroDeck.Backups;
 using SuchByte.MacroDeck.Configuration;
 using SuchByte.MacroDeck.DataTypes.Updater;
@@ -25,13 +19,17 @@ using SuchByte.MacroDeck.Server;
 using SuchByte.MacroDeck.Services;
 using SuchByte.MacroDeck.Startup;
 using SuchByte.MacroDeck.Variables;
+using System.Diagnostics;
+using System.IO;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
 using Version = SuchByte.MacroDeck.DataTypes.Core.Version;
 
 namespace SuchByte.MacroDeck;
 
 public class MacroDeck : NativeWindow
 {
-    public static Version Version = 
+    public static Version Version =
         Version.Parse(FileVersionInfo.GetVersionInfo(ApplicationPaths.ExecutablePath).ProductVersion);
 
     public static readonly int ApiVersion = 20;
@@ -40,9 +38,9 @@ public class MacroDeck : NativeWindow
     public static StartParameters StartParameters { get; private set; } = new();
     public static MainConfiguration Configuration { get; private set; } = new();
     public static bool SafeMode { get; set; } = false;
-    
+
     internal static SynchronizationContext? SyncContext { get; set; }
-        
+
     public static event EventHandler? OnMainWindowLoad;
     public static event EventHandler? OnMacroDeckLoaded;
 
@@ -56,12 +54,12 @@ public class MacroDeck : NativeWindow
     };
 
     private static MainWindow? _mainWindow;
-    public static MainWindow? MainWindow => 
+    public static MainWindow? MainWindow =>
         _mainWindow is { IsDisposed: false, Visible: true, IsHandleCreated: true } ? _mainWindow : null;
 
 
     private static readonly Stopwatch StartUpTimeStopWatch = new();
-    
+
     internal static void Start(StartParameters startParameters)
     {
         StartParameters = startParameters;
@@ -91,7 +89,7 @@ public class MacroDeck : NativeWindow
             StartInitialSetup();
             return;
         }
-        
+
         Configuration = MainConfiguration.LoadFromFile(ApplicationPaths.MainConfigFilePath);
         LanguageManager.SetLanguage(Configuration.Language);
         _ = new HotkeyManager();
@@ -130,7 +128,7 @@ public class MacroDeck : NativeWindow
 
         UpdateService.Instance().StartPeriodicalUpdateCheck();
         UpdateService.Instance().UpdateAvailable += OnUpdateAvailable;
-        
+
         ExtensionStoreHelper.SearchUpdatesAsync();
 
         if (StartParameters.ShowMainWindow)
@@ -152,11 +150,11 @@ public class MacroDeck : NativeWindow
         {
             MainWindow?.SetView(new SettingsView(2));
         };
-        
+
         NotificationManager.SystemNotification(
             "Macro Deck Updater",
-            string.Format(LanguageManager.Strings.VersionXIsNowAvailable, e.Version, e.IsBeta == true ? "Beta" : "Release"), 
-            true, 
+            string.Format(LanguageManager.Strings.VersionXIsNowAvailable, e.Version, e.IsBeta == true ? "Beta" : "Release"),
+            true,
             new List<Control> { btnOpenSettings }, Resources.Macro_Deck_2021_update);
 
     }
@@ -190,7 +188,8 @@ public class MacroDeck : NativeWindow
         if (foundNetworkInterfaces == 0)
         {
             MacroDeckLogger.Error("No network interfaces were found");
-        } else
+        }
+        else
         {
             MacroDeckLogger.Info($"Found network interfaces:\n{sb}");
         }
@@ -270,8 +269,8 @@ public class MacroDeck : NativeWindow
         {
             CreateMainForm();
             return;
-        } 
-        
+        }
+
         SyncContext.Send(_ =>
         {
             CreateMainForm();
@@ -298,7 +297,7 @@ public class MacroDeck : NativeWindow
         _mainWindow.FormClosed += MainWindow_FormClosed;
         _mainWindow.Show();
     }
-    
+
     private static void MainWindow_FormClosed(object? sender, FormClosedEventArgs e)
     {
         if (_mainWindow == null) return;

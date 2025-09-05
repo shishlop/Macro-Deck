@@ -7,7 +7,7 @@ public class VersionModel
 {
     private const string PatternBeta = @"^(\d+)\.(\d+)\.(\d+)-preview(\d+)$";
     private const string PatternRelease = @"^(\d+)\.(\d+)\.(\d+)$";
-    
+
     public string VersionString { get; }
 
     public int BetaPatch { get; }
@@ -22,7 +22,7 @@ public class VersionModel
         {
             throw new ArgumentNullException();
         }
-        
+
         var matchBeta = Regex.Match(versionString, PatternBeta);
         var matchRelease = Regex.Match(versionString, PatternRelease);
 
@@ -35,7 +35,8 @@ public class VersionModel
             }
             VersionString = $"{matchBeta.Groups[1].Value}.{matchBeta.Groups[2].Value}.{matchBeta.Groups[3].Value}-preview{BetaPatch}" +
                             $"{(Debugger.IsAttached ? " (debug)" : "")}";
-        } else if (matchRelease.Success)
+        }
+        else if (matchRelease.Success)
         {
             VersionString = $"{matchBeta.Groups[1].Value}.{matchBeta.Groups[2].Value}.{matchBeta.Groups[3].Value} " +
                             $"{(Debugger.IsAttached ? " (debug)" : "")}";

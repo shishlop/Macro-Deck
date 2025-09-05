@@ -36,7 +36,8 @@ public static class OperatingSystemInformation
                 if (os.Version.Build < 22000)
                 {
                     versionString = "10";
-                } else
+                }
+                else
                 {
                     versionString = "11";
                 }

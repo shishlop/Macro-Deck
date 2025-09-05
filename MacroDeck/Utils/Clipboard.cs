@@ -10,7 +10,7 @@ public class Clipboard
     {
         TypeNameHandling = TypeNameHandling.Auto,
         NullValueHandling = NullValueHandling.Ignore,
-            
+
         Error = (sender, args) => { args.ErrorContext.Handled = true; }
     };
 

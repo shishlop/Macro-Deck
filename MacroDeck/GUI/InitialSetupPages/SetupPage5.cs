@@ -1,8 +1,7 @@
-﻿using System.Net;
-using System.Windows.Forms;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.Language;
+using System.Net;
 
 namespace SuchByte.MacroDeck.GUI.InitialSetupPages;
 
@@ -17,7 +16,8 @@ public partial class SetupPage5 : UserControl
 
     private void LoadAvailableIconPacks(bool autoInstall = false)
     {
-        Invoke(() => {
+        Invoke(() =>
+        {
             iconPacks.Controls.Clear();
             progressBar.Visible = true;
         });
@@ -45,7 +45,8 @@ public partial class SetupPage5 : UserControl
             {
                 progressBar.Visible = false;
             });
-        } catch
+        }
+        catch
         {
             Invoke(() =>
             {
@@ -58,7 +59,7 @@ public partial class SetupPage5 : UserControl
                 };
                 iconPacks.Controls.Add(error);
             });
-              
+
         }
         GC.Collect();
         GC.WaitForPendingFinalizers();

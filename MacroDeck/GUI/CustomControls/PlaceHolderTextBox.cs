@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls;
 
@@ -25,16 +23,18 @@ public partial class PlaceHolderTextBox : TextBox
     public new string Text
     {
         get => (isPlaceHolder || base.Text == _placeHolderText) ? string.Empty : base.Text;
-        set {
+        set
+        {
             if (value != _placeHolderText && value.Length > 0 && value != "")
             {
                 RemovePlaceHolder();
-            } else if (value.Length == 0 || value != "")
+            }
+            else if (value.Length == 0 || value != "")
             {
                 SetPlaceholder();
                 base.Text = _placeHolderText;
             }
-            base.Text = value; 
+            base.Text = value;
         }
     }
 

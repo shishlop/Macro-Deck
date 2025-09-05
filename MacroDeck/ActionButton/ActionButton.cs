@@ -1,7 +1,4 @@
-﻿using System.Drawing;
-using System.Runtime.InteropServices;
-using System.Windows.Forms;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using SuchByte.MacroDeck.Events;
 using SuchByte.MacroDeck.Hotkeys;
 using SuchByte.MacroDeck.Plugins;
@@ -97,7 +94,7 @@ public class ActionButton : IDisposable
         {
             return;
         }
-        
+
         bool.TryParse(variable.Value, out var newState);
         if (variable.Value.ToLower().Equals("on")) newState = true;
         State = newState;
@@ -127,7 +124,8 @@ public class ActionButton : IDisposable
         }
     }
 
-    public string IconOff { 
+    public string IconOff
+    {
         get => _iconOff;
 
         set
@@ -183,5 +181,5 @@ public class ActionButton : IDisposable
     public List<EventListener> EventListeners { get; set; } = new();
     public Keys ModifierKeyCodes { get; set; } = Keys.None;
     public Keys KeyCode { get; set; } = Keys.None;
-        
+
 }

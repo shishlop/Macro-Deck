@@ -19,7 +19,7 @@ public class MacroDeckClient
     {
         ClientId = clientId;
     }
-    
+
     public MacroDeckFolder Folder { get; set; }
 
     public MacroDeckProfile Profile { get; set; }

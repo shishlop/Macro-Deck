@@ -27,7 +27,7 @@ public static class MacroDeckPipeClient
         {
             // Ignore   
         }
-        
+
         return false;
     }
 

@@ -1,10 +1,9 @@
-﻿using System.Diagnostics;
-using System.Windows.Forms;
-using SuchByte.MacroDeck.Device;
+﻿using SuchByte.MacroDeck.Device;
 using SuchByte.MacroDeck.Folders;
 using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.Language;
 using SuchByte.MacroDeck.Profiles;
+using System.Diagnostics;
 using MessageBox = SuchByte.MacroDeck.GUI.CustomControls.MessageBox;
 
 namespace SuchByte.MacroDeck.GUI;
@@ -108,7 +107,7 @@ public partial class AddFolder : DialogForm
                 radioOnFocus.CheckedChanged += RadioOnFocus_CheckedChanged;
             }
         }
-            
+
     }
 
     private void RadioOnFocus_CheckedChanged(object sender, EventArgs e)
@@ -122,7 +121,8 @@ public partial class AddFolder : DialogForm
             });
             LoadDevices();
 
-        } else
+        }
+        else
         {
             applicationDeviceSettings.Enabled = false;
             devicesList.Items.Clear();
@@ -142,8 +142,9 @@ public partial class AddFolder : DialogForm
                 }
             });
         }
-           
-        if (Folder != null) {
+
+        if (Folder != null)
+        {
             Invoke(() =>
             {
                 if (Folder.ApplicationToTrigger.Length > 0 && !applicationList.Items.Contains(Folder.ApplicationToTrigger))
@@ -163,7 +164,7 @@ public partial class AddFolder : DialogForm
         {
             devicesList.Items.Add(macroDeckDevice.DisplayName, (Folder != null && Folder.ApplicationsFocusDevices != null && Folder.ApplicationsFocusDevices.Contains(macroDeckDevice.ClientId)));
         }
-           
+
     }
 
     private void BtnReloadApplications_Click(object sender, EventArgs e)

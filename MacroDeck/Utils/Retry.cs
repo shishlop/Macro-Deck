@@ -1,6 +1,4 @@
-﻿using System.Threading;
-
-namespace SuchByte.MacroDeck.Utils;
+﻿namespace SuchByte.MacroDeck.Utils;
 
 public static class Retry
 {

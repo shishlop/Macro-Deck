@@ -3,13 +3,13 @@
 public class QuickConnectQrCodeData
 {
     public string InstanceName { get; set; }
-    
+
     public string[] NetworkInterfaces { get; set; }
 
     public int Port { get; set; }
 
     public bool Ssl { get; set; }
-    
+
     public string Token { get; set; }
 
     public QuickConnectQrCodeData(string instanceName, string[] networkInterfaces, int port, bool ssl, string token)

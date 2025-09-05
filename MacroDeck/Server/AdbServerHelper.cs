@@ -1,10 +1,10 @@
-﻿using System.IO;
-using AdvancedSharpAdbClient;
+﻿using AdvancedSharpAdbClient;
 using AdvancedSharpAdbClient.DeviceCommands;
 using AdvancedSharpAdbClient.Models;
 using AdvancedSharpAdbClient.Receivers;
 using SuchByte.MacroDeck.Logging;
 using SuchByte.MacroDeck.Startup;
+using System.IO;
 
 namespace SuchByte.MacroDeck.Server;
 
@@ -15,20 +15,20 @@ public class AdbServerHelper
     private const string AdbFolderName = "Android Debug Bridge";
 
     private static readonly string AdbPath = Path.Combine(ApplicationPaths.MainDirectoryPath, AdbFolderName, "adb.exe");
-    
+
     public static async Task Initialize()
     {
         if (!MacroDeck.Configuration.EnableAdbServer)
         {
             return;
         }
-        
+
         if (!File.Exists(AdbPath))
         {
             MacroDeckLogger.Warning(typeof(AdbServerHelper), $"Cannot start adb server at {AdbPath}: File not found");
             return;
         }
-        
+
         MacroDeckLogger.Info(typeof(AdbServerHelper), $"Starting ADB server using {AdbPath}");
 
         _adbServer = new AdbServer();
@@ -37,7 +37,7 @@ public class AdbServerHelper
         {
             MacroDeckLogger.Info(typeof(AdbServerHelper), "Unable to start ADB server");
         }
-        
+
         var monitor = new DeviceMonitor(new AdbSocket(AdbClient.AdbServerEndPoint));
         monitor.DeviceConnected += Monitor_DeviceConnected;
         monitor.DeviceDisconnected += Monitor_DeviceDisconnected;
@@ -73,7 +73,7 @@ public class AdbServerHelper
         {
             return null;
         }
-        
+
         var adbClient = new AdbClient();
         await adbClient.ConnectAsync(serverEndpoint);
         return adbClient;
@@ -86,7 +86,7 @@ public class AdbServerHelper
         {
             return adbServerEndpoint;
         }
-        
+
         MacroDeckLogger.Info(typeof(AdbServerHelper), "Endpoint was null");
         return null;
 
@@ -103,7 +103,7 @@ public class AdbServerHelper
         {
             return;
         }
-        
+
         MacroDeckLogger.Info(typeof(AdbServerHelper), $"{e.Device.Name} connected");
         await RunForDevice(e.Device.Serial, async (adbDeviceClient, deviceData) =>
         {
@@ -122,7 +122,7 @@ public class AdbServerHelper
         {
             return true;
         }
-        
+
         MacroDeckLogger.Info(typeof(AdbServerHelper), $"Device {device.Serial} is still not online - {device.State}");
         return false;
 
@@ -134,7 +134,7 @@ public class AdbServerHelper
             }
         }
     }
-    
+
     private static async Task ExitMacroDeckClient(AdbClient adbDeviceClient, DeviceData device)
     {
         var deviceIsOnline = await IsDeviceOnline(device);
@@ -142,7 +142,7 @@ public class AdbServerHelper
         {
             return;
         }
-        
+
         await adbDeviceClient.ExecuteRemoteCommandAsync("am force-stop com.suchbyte.macrodeck",
             device,
             new ConsoleOutputReceiver());
@@ -155,13 +155,13 @@ public class AdbServerHelper
         {
             return;
         }
-        
+
         var deviceIsOnline = await IsDeviceOnline(device);
         if (!deviceIsOnline)
         {
             return;
         }
-        
+
         await adbDeviceClient.SendKeyEventAsync(device, "KEYCODE_WAKEUP");
         await adbDeviceClient.ExecuteRemoteCommandAsync("am start -n com.suchbyte.macrodeck/.MainActivity",
             device,
@@ -175,7 +175,7 @@ public class AdbServerHelper
         {
             return;
         }
-        
+
         try
         {
             await adbDeviceClient.CreateReverseForwardAsync(
@@ -183,9 +183,10 @@ public class AdbServerHelper
                 $"tcp:{MacroDeck.Configuration.HostPort}",
                 $"tcp:{MacroDeck.Configuration.HostPort}",
                 true);
-            
+
             MacroDeckLogger.Info(typeof(AdbServerHelper), $"Started reverse forward on {device.Name}");
-        } catch (Exception ex)
+        }
+        catch (Exception ex)
         {
             MacroDeckLogger.Warning(typeof(AdbServerHelper),
                 $"Unable to start reverse forward on {device.Name}: {ex.Message}");

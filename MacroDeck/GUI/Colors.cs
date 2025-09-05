@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-
-namespace SuchByte.MacroDeck.GUI;
+﻿namespace SuchByte.MacroDeck.GUI;
 
 public static class Colors
 {

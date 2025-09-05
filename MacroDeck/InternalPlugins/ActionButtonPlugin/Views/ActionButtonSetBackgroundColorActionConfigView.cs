@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
-using SuchByte.MacroDeck.GUI.CustomControls;
+﻿using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.InternalPlugins.ActionButtonPlugin.Enums;
 using SuchByte.MacroDeck.InternalPlugins.ActionButtonPlugin.ViewModels;
 using SuchByte.MacroDeck.Language;
@@ -40,7 +38,8 @@ public partial class ActionButtonSetBackgroundColorActionConfigView : ActionConf
         if (radioFixed.Checked)
         {
             _viewModel.Method = SetBackgroundColorMethod.Fixed;
-        } else if (radioRandom.Checked)
+        }
+        else if (radioRandom.Checked)
         {
             _viewModel.Method = SetBackgroundColorMethod.Random;
         }
@@ -53,7 +52,7 @@ public partial class ActionButtonSetBackgroundColorActionConfigView : ActionConf
         {
             Color = btnChangeColor.BackColor,
             FullOpen = true,
-            CustomColors = new[] { ColorTranslator.ToOle(Color.FromArgb(35,35,35)) }
+            CustomColors = new[] { ColorTranslator.ToOle(Color.FromArgb(35, 35, 35)) }
         };
         if (colorDialog.ShowDialog() == DialogResult.OK)
         {
@@ -63,7 +62,7 @@ public partial class ActionButtonSetBackgroundColorActionConfigView : ActionConf
 
     private void RadioRandom_CheckedChanged(object sender, EventArgs e)
     {
-            
+
     }
 
     private void RadioFixed_CheckedChanged(object sender, EventArgs e)

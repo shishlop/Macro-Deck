@@ -1,7 +1,7 @@
-﻿using System.IO;
-using System.IO.Compression;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using SuchByte.MacroDeck.ExtensionStore;
+using System.IO;
+using System.IO.Compression;
 
 namespace SuchByte.MacroDeck.Models;
 

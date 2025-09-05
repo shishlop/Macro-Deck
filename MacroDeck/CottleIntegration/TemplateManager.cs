@@ -1,7 +1,7 @@
-﻿using System.Diagnostics;
-using System.Reflection;
-using Cottle;
+﻿using Cottle;
 using SuchByte.MacroDeck.Variables;
+using System.Diagnostics;
+using System.Reflection;
 
 namespace SuchByte.MacroDeck.CottleIntegration;
 
@@ -20,7 +20,7 @@ public static class TemplateManager
     public static readonly string[] Special = { TemplateTrimBlank };
 
     public static bool HasTrimBlank(ReadOnlySpan<char> template) => template.StartsWith(TemplateTrimBlank, StringComparison.OrdinalIgnoreCase);
-    
+
     private static string GetRenderTemplate(ReadOnlySpan<char> template, out DocumentConfiguration templateConfiguration)
     {
         templateConfiguration = new DocumentConfiguration
@@ -38,7 +38,7 @@ public static class TemplateManager
     }
 
     public static IDocument GetDocument(ReadOnlySpan<char> template)
-    { 
+    {
         var renderTemplate = GetRenderTemplate(template, out var configuration);
         return Document.CreateDefault(renderTemplate, configuration).DocumentOrThrow;
     }
@@ -115,10 +115,10 @@ public static class TemplateManager
     }
 
     private static readonly Value GetDateTime = Value.FromFunction(
-            Function.CreatePure1((state, formatString) => 
-            //formatString.Type != ValueContent.String
-            //    ? throw new InvalidCastException()
-            //    : 
+            Function.CreatePure1((state, formatString) =>
+                //formatString.Type != ValueContent.String
+                //    ? throw new InvalidCastException()
+                //    : 
                 DateTimeOffset.Now.ToString(formatString.AsString)
             )
         );
@@ -156,7 +156,7 @@ public static class TemplateManager
 
         void Copy(string[] array)
         {
-            Array.Copy(array, 0,keywords, keywords.Count(x => !string.IsNullOrEmpty(x)), array.Length);
+            Array.Copy(array, 0, keywords, keywords.Count(x => !string.IsNullOrEmpty(x)), array.Length);
         }
     }
 }

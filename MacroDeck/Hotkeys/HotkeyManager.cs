@@ -1,8 +1,7 @@
-﻿using System.Runtime.InteropServices;
-using System.Windows.Forms;
-using SuchByte.MacroDeck.Enums;
+﻿using SuchByte.MacroDeck.Enums;
 using SuchByte.MacroDeck.Logging;
 using SuchByte.MacroDeck.Server;
+using System.Runtime.InteropServices;
 
 namespace SuchByte.MacroDeck.Hotkeys;
 

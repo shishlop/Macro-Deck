@@ -10,7 +10,7 @@ public static class StringExtensions
         {
             return false;
         }
-        
+
         var hash1 = SHA256.HashData(Encoding.UTF8.GetBytes(str1));
         var hash2 = SHA256.HashData(Encoding.UTF8.GetBytes(str2));
 

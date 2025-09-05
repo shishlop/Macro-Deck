@@ -1,6 +1,6 @@
-﻿using System.Collections;
-using Cottle;
+﻿using Cottle;
 using SuchByte.MacroDeck.CottleIntegration;
+using System.Collections;
 
 namespace MacroDeck.Tests;
 
@@ -38,7 +38,7 @@ internal class TemplateManagerTests
         var doc = TemplateManager.GetDocument(template);
         return doc.Render(Context.CreateBuiltin(Context.Empty));
     }
-    
+
 }
 public class TemplateManagerTestData
 {

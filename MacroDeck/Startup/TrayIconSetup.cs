@@ -1,18 +1,16 @@
 ﻿using SuchByte.MacroDeck.Language;
-using System.Drawing;
-using System.Windows.Forms;
 
 namespace SuchByte.MacroDeck.Startup;
 
 public static class TrayIconSetup
 {
-    public static NotifyIcon SetupTrayIcon(this NotifyIcon trayIcon, 
+    public static NotifyIcon SetupTrayIcon(this NotifyIcon trayIcon,
         ContextMenuStrip trayIconContextMenu,
         Action showAction,
         Action restartAction,
         Action exitAction)
     {
-        trayIcon.Visible = true; 
+        trayIcon.Visible = true;
         trayIcon.MouseDown += (obj, e) =>
         {
             if (e.Button == MouseButtons.Left)

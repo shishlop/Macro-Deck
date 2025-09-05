@@ -1,5 +1,5 @@
-﻿using System.IO;
-using SuchByte.MacroDeck.Utils;
+﻿using SuchByte.MacroDeck.Utils;
+using System.IO;
 
 namespace SuchByte.MacroDeck.Icons;
 
@@ -41,5 +41,5 @@ public class Icon
         }
     }
 
-    public string IconHex128_64Base64 => Base64.GetBase64ByteArray((Bitmap)IconImage, new Size(128,64));
+    public string IconHex128_64Base64 => Base64.GetBase64ByteArray((Bitmap)IconImage, new Size(128, 64));
 }

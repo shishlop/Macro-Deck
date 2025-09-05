@@ -1,5 +1,4 @@
-﻿using System.Windows.Forms;
-using SuchByte.MacroDeck.Interfaces;
+﻿using SuchByte.MacroDeck.Interfaces;
 using SuchByte.MacroDeck.Plugins;
 using System.ComponentModel;
 

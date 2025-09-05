@@ -1,6 +1,6 @@
-﻿using System.IO;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using SuchByte.MacroDeck.Startup;
+using System.IO;
 
 namespace SuchByte.MacroDeck.Plugins;
 
@@ -15,7 +15,7 @@ public class PluginConfiguration
     {
         return Path.Combine(ApplicationPaths.PluginConfigPath, FileName(plugin));
     }
-    
+
     public static void SetValue(MacroDeckPlugin plugin, string key, string value)
     {
         try
@@ -33,7 +33,8 @@ public class PluginConfiguration
             using var sw = new StreamWriter(FilePath(plugin));
             using JsonWriter writer = new JsonTextWriter(sw);
             serializer.Serialize(writer, pluginConfig);
-        } catch { }
+        }
+        catch { }
     }
 
     private static Dictionary<string, string>? GetConfig(MacroDeckPlugin plugin)
@@ -42,7 +43,7 @@ public class PluginConfiguration
         {
             return new Dictionary<string, string>();
         }
-        
+
         return JsonConvert.DeserializeObject<Dictionary<string, string>>(
             File.ReadAllText(FilePath(plugin)),
             new JsonSerializerSettings
@@ -67,7 +68,8 @@ public class PluginConfiguration
             {
                 value = pluginConfig[key];
             }
-        } catch {}
+        }
+        catch { }
 
         return value;
     }
@@ -77,7 +79,8 @@ public class PluginConfiguration
         try
         {
             File.Delete(FilePath(plugin));
-        }catch { }
+        }
+        catch { }
     }
 
 }

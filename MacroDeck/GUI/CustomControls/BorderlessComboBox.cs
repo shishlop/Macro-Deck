@@ -1,7 +1,4 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
-
-namespace SuchByte.MacroDeck.GUI.CustomControls;
+﻿namespace SuchByte.MacroDeck.GUI.CustomControls;
 
 internal class BorderlessComboBox : System.Windows.Forms.ComboBox
 {
@@ -14,7 +11,7 @@ internal class BorderlessComboBox : System.Windows.Forms.ComboBox
         if (m.Msg == WM_PAINT)
         {
             using (var g = Graphics.FromHwnd(Handle))
-            {                    
+            {
                 // Remove white border
                 using (var p = new Pen(Parent.BackColor, 1))
                 {
@@ -41,7 +38,8 @@ internal class BorderlessComboBox : System.Windows.Forms.ComboBox
             try
             {
                 SelectionLength = 0;
-            } catch { }
+            }
+            catch { }
         }
     }
 

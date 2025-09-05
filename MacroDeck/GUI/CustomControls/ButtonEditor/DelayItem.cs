@@ -1,5 +1,4 @@
-﻿using System.Windows.Forms;
-using SuchByte.MacroDeck.ActionButton.Plugin;
+﻿using SuchByte.MacroDeck.ActionButton.Plugin;
 using SuchByte.MacroDeck.Interfaces;
 using SuchByte.MacroDeck.Plugins;
 using System.ComponentModel;
@@ -37,7 +36,8 @@ public partial class DelayItem : UserControl, IActionConditionItem
             millis.ValueChanged += DelayValueChanged;
             seconds.ValueChanged += DelayValueChanged;
             minutes.ValueChanged += DelayValueChanged;
-        } else
+        }
+        else
         {
             Action = new DelayAction
             {

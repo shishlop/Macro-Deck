@@ -11,7 +11,7 @@ public class Startup
     {
         services.RegisterRestApiControllers();
     }
-    
+
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
         app.UseCors("AllowAny");

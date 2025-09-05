@@ -1,12 +1,10 @@
-﻿using System.Runtime.InteropServices;
-using System.Windows.Forms;
-using SuchByte.MacroDeck.GUI.CustomControls;
+﻿using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.GUI.CustomControls.ExtensionStoreDownloader;
 using SuchByte.MacroDeck.Language;
 using SuchByte.MacroDeck.Logging;
 using SuchByte.MacroDeck.Model;
 using SuchByte.MacroDeck.Plugins;
-using MessageBox = SuchByte.MacroDeck.GUI.CustomControls.MessageBox;
+using System.Runtime.InteropServices;
 
 namespace SuchByte.MacroDeck.GUI.Dialogs;
 
@@ -37,8 +35,8 @@ public partial class ExtensionStoreDownloader : DialogForm
     public void DownloadAndInstall()
     {
         _pluginsToInstall = _packageIds.Count;
-            
-        Invoke(new Action(() => lblPackagesToDownload.Text =string.Format(LanguageManager.Strings.DownloadingAndInstallingXPackages, _pluginsToInstall)));
+
+        Invoke(new Action(() => lblPackagesToDownload.Text = string.Format(LanguageManager.Strings.DownloadingAndInstallingXPackages, _pluginsToInstall)));
         foreach (var packageInfo in _packageIds)
         {
             var extensionStoreDownloaderItem = new ExtensionStoreDownloaderItem(packageInfo);
@@ -53,12 +51,12 @@ public partial class ExtensionStoreDownloader : DialogForm
                         btnDone.Visible = true;
                     });
                     MacroDeckLogger.Info(typeof(ExtensionStoreDownloader), $"*** Installation of {_pluginsToInstall} package(s) done ***");
-                       
+
                 }
             };
             Invoke(() => downloadList.Controls.Add(extensionStoreDownloaderItem));
         }
-            
+
     }
 
     private void ExtensionStoreDownloader_Load(object sender, EventArgs e)

@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
-using SuchByte.MacroDeck.Models;
+﻿using SuchByte.MacroDeck.Models;
 using SuchByte.MacroDeck.Plugins;
 using SuchByte.MacroDeck.Properties;
 
@@ -53,7 +51,7 @@ public class NotificationManager
 
         return notificationModel.Id;
     }
-        
+
     /// <summary>
     /// Removes a notification
     /// </summary>

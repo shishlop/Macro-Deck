@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-
-namespace SuchByte.MacroDeck.Icons;
+﻿namespace SuchByte.MacroDeck.Icons;
 
 public class IconPack
 {
@@ -25,7 +23,7 @@ public class IconPack
     /// A list containing all icons of the icon pack
     /// </summary>
     public List<Icon> Icons;
-        
+
     /// <summary>
     /// Icon displayed in the extension manager
     /// </summary>

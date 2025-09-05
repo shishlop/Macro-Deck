@@ -1,6 +1,5 @@
-﻿using System.Drawing;
+﻿using SuchByte.MacroDeck.ActionButton;
 using System.Drawing.Drawing2D;
-using SuchByte.MacroDeck.ActionButton;
 
 namespace SuchByte.MacroDeck.Utils;
 

@@ -3,21 +3,21 @@
 public class Strings
 {
 
-    public string __Language__  = "English";
-    public string __LanguageCode__  = "en";
-    public string __Author__  = "Macro Deck";
+    public string __Language__ = "English";
+    public string __LanguageCode__ = "en";
+    public string __Author__ = "Macro Deck";
 
-    public string NetworkAdapter  = "Network adapter";
-    public string IPAddress  = "IP address";
-    public string Port  = "Port";
-    public string Info  = "Info";
+    public string NetworkAdapter = "Network adapter";
+    public string IPAddress = "IP address";
+    public string Port = "Port";
+    public string Info = "Info";
     public string Error = "Error";
     public string Warning = "Warning";
-    public string ConfigureNetworkInfo   = "It's really important to select the correct network adapter or otherwise you will not be able to connect with the client to the server. In most cases the name of the Network adapter looks like \"Ethernet\" or \"Wi-Fi\" and the ip address in most cases looks like \"192.168.178.xxx\".\r\n\r\nThe default port for Macro Deck is 8191. If some other application uses this port, you can change it.";
-    public string AutomaticallyCheckUpdates  = "Automatically check for updates";
-    public string AutomaticallyStartWithWindows  = "Automatically start with Windows";
-    public string Show  = "Configure Macro Deck";
-    public string Exit  = "Exit Macro Deck";
+    public string ConfigureNetworkInfo = "It's really important to select the correct network adapter or otherwise you will not be able to connect with the client to the server. In most cases the name of the Network adapter looks like \"Ethernet\" or \"Wi-Fi\" and the ip address in most cases looks like \"192.168.178.xxx\".\r\n\r\nThe default port for Macro Deck is 8191. If some other application uses this port, you can change it.";
+    public string AutomaticallyCheckUpdates = "Automatically check for updates";
+    public string AutomaticallyStartWithWindows = "Automatically start with Windows";
+    public string Show = "Configure Macro Deck";
+    public string Exit = "Exit Macro Deck";
     public string XUpdatesAvailable = "{0} updates available";
     public string Profile = "Profile";
     public string Columns = "Columns";
@@ -99,20 +99,20 @@ public class Strings
     public string XClientsConnected = "{0} clients connected";
     public string IpAddressHostNamePort = "IP address/hostname : Port";
 
-    public string InitialSetupButtonBack  = "<- Back";
-    public string InitialSetupButtonNext  = "Next ->";
-    public string InitialSetupButtonFinish  = "Finish";
+    public string InitialSetupButtonBack = "<- Back";
+    public string InitialSetupButtonNext = "Next ->";
+    public string InitialSetupButtonFinish = "Finish";
     public string InitialSetupSelectLanguage = "Select your language";
-    public string InitialSetupPage  = "Page {0}/{1}";
-    public string InitialSetupWelcome  = "Welcome to Macro Deck 2!";
-    public string InitialSetupLetsConfigure  = "Let's configure your Macro Deck experience";
-    public string InitialSetupConfigureNetworkSettings  = "Configure your network settings";
-    public string InitialSetupConfigureGridPreferences  = "Now let's configure the grid to your preferences";
-    public string InitialSetupPickAllPluginsYouNeed  = "Pick all the plugins you need";
-    public string InitialSetupDontWorryInstallUninstallPlugins  = "Don't worry, you can always install/uninstall plugins later in the package manager";
-    public string InitialSetupWantSomeIcons  = "Do you want some icons?";
-    public string InitialSetupInstallIconPacksPackageManager  = "You can also install icon packs later in the package manager";
-    public string InitialSetupAlmostDone  = "We're almost done!";
+    public string InitialSetupPage = "Page {0}/{1}";
+    public string InitialSetupWelcome = "Welcome to Macro Deck 2!";
+    public string InitialSetupLetsConfigure = "Let's configure your Macro Deck experience";
+    public string InitialSetupConfigureNetworkSettings = "Configure your network settings";
+    public string InitialSetupConfigureGridPreferences = "Now let's configure the grid to your preferences";
+    public string InitialSetupPickAllPluginsYouNeed = "Pick all the plugins you need";
+    public string InitialSetupDontWorryInstallUninstallPlugins = "Don't worry, you can always install/uninstall plugins later in the package manager";
+    public string InitialSetupWantSomeIcons = "Do you want some icons?";
+    public string InitialSetupInstallIconPacksPackageManager = "You can also install icon packs later in the package manager";
+    public string InitialSetupAlmostDone = "We're almost done!";
 
     public string KnownDevices = "Known devices";
     public string AskOnNewConnections = "Ask on new connections";

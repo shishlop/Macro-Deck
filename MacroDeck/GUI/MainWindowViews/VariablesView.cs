@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
-using SuchByte.MacroDeck.GUI.CustomControls;
+﻿using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.GUI.Dialogs;
 using SuchByte.MacroDeck.Language;
 using SuchByte.MacroDeck.Models;
@@ -36,12 +34,13 @@ public partial class VariablesView : UserControl
         var variableCreators = new List<string>();
         foreach (var variable in VariableManager.ListVariables)
         {
-            if (!variableCreators.Contains(variable.Creator)) {
+            if (!variableCreators.Contains(variable.Creator))
+            {
                 variableCreators.Add(variable.Creator);
             }
         }
 
-        var filterModel = VariableViewCreatorFilterModel.Deserialize(Settings.Default.VariableViewSelectedFilter);            
+        var filterModel = VariableViewCreatorFilterModel.Deserialize(Settings.Default.VariableViewSelectedFilter);
 
         foreach (var creator in variableCreators)
         {
@@ -74,8 +73,8 @@ public partial class VariablesView : UserControl
         var filterModel = new VariableViewCreatorFilterModel
         {
             HiddenCreators = (from creator in creatorFilter.Controls.OfType<CheckBox>()
-                where !creator.Checked
-                select creator.Name).ToList()
+                              where !creator.Checked
+                              select creator.Name).ToList()
         };
         Settings.Default.VariableViewSelectedFilter = filterModel.Serialize();
         Settings.Default.Save();
@@ -119,11 +118,12 @@ public partial class VariablesView : UserControl
             var newVariableItem = new VariableItem(variable);
             variablesPanel.Controls.Add(newVariableItem);
             LoadCreators();
-        } else
+        }
+        else
         {
             variableItemView.Variable = variable;
             variableItemView.Update();
-        }                        
+        }
     }
 
     private void LoadVariables()

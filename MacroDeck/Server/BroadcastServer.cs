@@ -1,6 +1,6 @@
-﻿using System.Net.Sockets;
+﻿using Newtonsoft.Json.Linq;
+using System.Net.Sockets;
 using System.Timers;
-using Newtonsoft.Json.Linq;
 using Timer = System.Timers.Timer;
 
 namespace SuchByte.MacroDeck.Server;
@@ -21,7 +21,8 @@ public static class BroadcastServer
                 Enabled = true
             };
             broadcastTimer.Elapsed += BroadcastTimer_Elapsed;
-        } catch {}
+        }
+        catch { }
     }
 
     private static void BroadcastTimer_Elapsed(object sender, ElapsedEventArgs e)
@@ -39,6 +40,7 @@ public static class BroadcastServer
                 var data = Encoding.UTF8.GetBytes(broacastObject.ToString());
                 _udpClient.Send(data, data.Length, "255.255.255.255", MacroDeck.Configuration.HostPort);
             });
-        } catch { }
+        }
+        catch { }
     }
 }

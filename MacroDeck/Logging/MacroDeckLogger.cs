@@ -1,14 +1,12 @@
-﻿using System.Diagnostics;
-using System.Drawing;
-using System.IO;
-using System.Windows.Forms;
-using SuchByte.MacroDeck.GUI.CustomControls;
+﻿using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.GUI.Dialogs;
 using SuchByte.MacroDeck.Notifications;
 using SuchByte.MacroDeck.Plugins;
 using SuchByte.MacroDeck.Properties;
 using SuchByte.MacroDeck.Startup;
 using SuchByte.MacroDeck.Utils;
+using System.Diagnostics;
+using System.IO;
 
 namespace SuchByte.MacroDeck.Logging;
 
@@ -252,7 +250,8 @@ public static class MacroDeckLogger
                 {
                     File.AppendAllText(CurrentFilename, Environment.NewLine + formattedLog, Encoding.UTF8);
                 }, TimeSpan.FromMilliseconds(10));
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 FileLogging = false;
                 Log(sender, LogLevel.Error, "File logging failed: " + ex.Message);
@@ -268,7 +267,8 @@ public static class MacroDeckLogger
             try
             {
                 File.Delete(file.FullName);
-            } catch { }
+            }
+            catch { }
         }
 
     }

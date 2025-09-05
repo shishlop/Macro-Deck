@@ -1,10 +1,9 @@
-﻿using System.ComponentModel;
-using System.Windows.Forms;
-using SuchByte.MacroDeck.ExtensionStore;
+﻿using SuchByte.MacroDeck.ExtensionStore;
 using SuchByte.MacroDeck.Icons;
 using SuchByte.MacroDeck.Logging;
 using SuchByte.MacroDeck.Models;
 using SuchByte.MacroDeck.Plugins;
+using System.ComponentModel;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls.ExtensionsView;
 
@@ -14,7 +13,7 @@ public partial class ExtensionZipInstallerView : UserControl
 
     public ExtensionManifestModel ExtensionManifestModel;
 
-        
+
 
     public ExtensionZipInstallerView()
     {
@@ -37,9 +36,10 @@ public partial class ExtensionZipInstallerView : UserControl
             txtZipPath.Text = dialog.FileName;
             txtPackageId.Text = ExtensionManifestModel.PackageId;
             txtAuthor.Text = ExtensionManifestModel.Author;
-    
+
             btnInstall.Enabled = true;
-        } catch (Exception)
+        }
+        catch (Exception)
         {
             btnInstall.Enabled = false;
             MacroDeckLogger.Error(GetType(), "Invalid or corrupt zip archive provided for installation");

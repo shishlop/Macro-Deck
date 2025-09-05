@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
-using SuchByte.MacroDeck.ActionButton;
+﻿using SuchByte.MacroDeck.ActionButton;
 using SuchByte.MacroDeck.ActionButton.Plugin;
 using SuchByte.MacroDeck.GUI.CustomControls.ButtonEditor;
 using SuchByte.MacroDeck.GUI.Dialogs;
@@ -62,7 +60,7 @@ public partial class ConditionItem : UserControl, IActionConditionItem
     private void BtnAddAction_Click(object sender, EventArgs e)
     {
         addItemContextMenu.Show(btnAddAction, new Point(0, 0 + btnAddAction.Height));
-            
+
     }
 
     private void BtnAddActionElse_Click(object sender, EventArgs e)
@@ -181,7 +179,8 @@ public partial class ConditionItem : UserControl, IActionConditionItem
             ((ConditionAction)Action).Actions.RemoveAt(currentIndex);
             ((ConditionAction)Action).Actions.Insert(currentIndex - 1, action);
             actionsList.Controls.SetChildIndex((Control)actionItem, currentIndex - 1);
-        } else if (((ConditionAction)Action).ActionsElse.Contains(action))
+        }
+        else if (((ConditionAction)Action).ActionsElse.Contains(action))
         {
             var currentIndex = ((ConditionAction)Action).ActionsElse.IndexOf(action);
             if (currentIndex == 0) return;
@@ -255,7 +254,7 @@ public partial class ConditionItem : UserControl, IActionConditionItem
                 ((ConditionAction)Action).ActionsElse.RemoveAt(index);
                 ((ConditionAction)Action).ActionsElse.Insert(index, configurator.Action);
             }
-                    
+
             RefreshActions();
         }
     }
@@ -404,7 +403,8 @@ public partial class ConditionItem : UserControl, IActionConditionItem
             {
                 ((ConditionAction)Action).Actions.Add(actionConfigurator.Action);
                 AddActionItem(actionConfigurator.Action, actionsList);
-            } else if (addItemContextMenu.SourceControl.Equals(btnAddActionElse))
+            }
+            else if (addItemContextMenu.SourceControl.Equals(btnAddActionElse))
             {
                 ((ConditionAction)Action).ActionsElse.Add(actionConfigurator.Action);
                 AddActionItem(actionConfigurator.Action, elseActionsList);

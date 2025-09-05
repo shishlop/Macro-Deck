@@ -9,7 +9,7 @@ public class StartParameters
     public int Port { get; set; }
 
     [Option("force-update", Required = false)]
-    public bool ForceUpdate { get; set; } 
+    public bool ForceUpdate { get; set; }
 
     [Option("test-channel", Required = false)]
     public bool TestUpdateChannel { get; set; }
@@ -17,7 +17,7 @@ public class StartParameters
     [Option("export-default-strings", Required = false)]
     public bool ExportDefaultStrings { get; set; }
 
-    [Option("portable", Required = false)] 
+    [Option("portable", Required = false)]
     public bool PortableMode { get; set; }
 
     [Option("show", Required = false)]

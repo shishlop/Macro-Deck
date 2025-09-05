@@ -1,12 +1,9 @@
-﻿using System.IO;
-using System.Net.NetworkInformation;
-using System.Net.Sockets;
-using System.Text.Json;
-using QRCoder;
+﻿using QRCoder;
 using SuchByte.MacroDeck.DataTypes.QrCode;
-using SuchByte.MacroDeck.Logging;
 using SuchByte.MacroDeck.Server;
 using SuchByte.MacroDeck.Utils;
+using System.IO;
+using System.Text.Json;
 
 namespace SuchByte.MacroDeck.Services;
 

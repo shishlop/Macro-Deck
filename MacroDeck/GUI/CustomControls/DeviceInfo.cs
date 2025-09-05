@@ -1,11 +1,8 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
-using MacroDeck.Server;
+﻿using MacroDeck.Server;
 using SuchByte.MacroDeck.Device;
 using SuchByte.MacroDeck.GUI.Dialogs;
 using SuchByte.MacroDeck.Language;
 using SuchByte.MacroDeck.Profiles;
-using SuchByte.MacroDeck.Properties;
 using SuchByte.MacroDeck.Server;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls;
@@ -91,7 +88,8 @@ public partial class DeviceInfo : RoundedUserControl
         if (DeviceManager.IsDisplayNameAvailable(displayName.Text))
         {
             DeviceManager.RenameMacroDeckDevice(_macroDeckDevice, displayName.Text);
-        } else
+        }
+        else
         {
             using var msgBox = new MessageBox();
             msgBox.ShowDialog(LanguageManager.Strings.CantChangeName, string.Format(LanguageManager.Strings.DeviceCalledXAlreadyExists, displayName.Text), MessageBoxButtons.OK);

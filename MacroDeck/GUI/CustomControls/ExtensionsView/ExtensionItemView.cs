@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
-using SuchByte.MacroDeck.Extension;
+﻿using SuchByte.MacroDeck.Extension;
 using SuchByte.MacroDeck.ExtensionStore;
 using SuchByte.MacroDeck.Icons;
 using SuchByte.MacroDeck.Language;

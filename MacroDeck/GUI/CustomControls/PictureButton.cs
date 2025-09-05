@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls;
 
@@ -8,13 +6,15 @@ public class PictureButton : PictureBox
 {
 
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-    public Image HoverImage { 
+    public Image HoverImage
+    {
         get => _hoverImage;
-        set { 
+        set
+        {
             _hoverImage = value;
             Invalidate();
         }
-        
+
     }
 
     private Image _hoverImage;
@@ -57,7 +57,8 @@ public class PictureButton : PictureBox
             {
                 pe.Graphics.DrawImage(_hoverImage, new Rectangle(0, 0, Width, Height));
             }
-        } else
+        }
+        else
         {
             base.OnPaint(pe);
         }

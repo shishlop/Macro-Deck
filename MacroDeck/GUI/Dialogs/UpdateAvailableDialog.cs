@@ -6,7 +6,6 @@ using SuchByte.MacroDeck.Language;
 using SuchByte.MacroDeck.Logging;
 using SuchByte.MacroDeck.Services;
 using System.Diagnostics;
-using System.Windows.Forms;
 
 namespace SuchByte.MacroDeck.GUI.Dialogs;
 

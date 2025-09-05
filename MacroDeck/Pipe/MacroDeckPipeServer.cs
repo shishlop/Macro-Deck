@@ -1,6 +1,6 @@
-﻿using System.IO;
+﻿using SuchByte.MacroDeck.Logging;
+using System.IO;
 using System.IO.Pipes;
-using SuchByte.MacroDeck.Logging;
 
 namespace SuchByte.MacroDeck.Pipe;
 

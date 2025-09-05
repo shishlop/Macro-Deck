@@ -1,5 +1,4 @@
-﻿using System.Windows.Forms;
-using SuchByte.MacroDeck.Language;
+﻿using SuchByte.MacroDeck.Language;
 
 namespace SuchByte.MacroDeck.GUI.InitialSetupPages;
 

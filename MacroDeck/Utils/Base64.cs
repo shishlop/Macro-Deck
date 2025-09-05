@@ -1,5 +1,4 @@
-﻿using System.Drawing;
-using System.Drawing.Imaging;
+﻿using System.Drawing.Imaging;
 using System.IO;
 using System.Runtime.InteropServices;
 
@@ -108,11 +107,12 @@ public class Base64
             Image image = image = Image.FromStream(ms, true);
 
             return image;
-        } catch
+        }
+        catch
         {
             return null;
         }
-            
+
     }
 
     public static string GetBase64FromImage(Image image)
@@ -135,11 +135,12 @@ public class Base64
             image.Dispose();
 
             return Convert.ToBase64String(ms.ToArray());
-        } catch
+        }
+        catch
         {
             return "";
         }
-           
+
     }
 
 }

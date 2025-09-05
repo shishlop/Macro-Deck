@@ -1,7 +1,5 @@
-﻿using System.Drawing;
+﻿using System.ComponentModel;
 using System.Drawing.Drawing2D;
-using System.Windows.Forms;
-using System.ComponentModel;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls;
 

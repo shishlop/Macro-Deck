@@ -1,10 +1,9 @@
-﻿using System.Globalization;
-using System.Windows.Forms;
-using SuchByte.MacroDeck.Configuration;
+﻿using SuchByte.MacroDeck.Configuration;
 using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.GUI.InitialSetupPages;
 using SuchByte.MacroDeck.Language;
 using SuchByte.MacroDeck.Logging;
+using System.Globalization;
 
 namespace SuchByte.MacroDeck.GUI;
 
@@ -101,7 +100,8 @@ public partial class InitialSetup : DialogForm
                 }
             }*/
 
-        } else
+        }
+        else
         {
             currentPage++;
             if (currentPage > pages.Count - 1)
@@ -110,7 +110,7 @@ public partial class InitialSetup : DialogForm
             }
             SetPage(currentPage);
         }
-            
+
     }
 
     private void BtnBack_Click(object sender, EventArgs e)
@@ -134,14 +134,16 @@ public partial class InitialSetup : DialogForm
         if (page == 0)
         {
             btnBack.Visible = false;
-        } else
+        }
+        else
         {
             btnBack.Visible = true;
         }
         if (page == pages.Count - 1)
         {
             btnNext.Text = LanguageManager.Strings.InitialSetupButtonFinish;
-        } else
+        }
+        else
         {
             btnNext.Text = LanguageManager.Strings.InitialSetupButtonNext;
         }
@@ -168,6 +170,6 @@ public partial class InitialSetup : DialogForm
     }
     private void InitialSetup_Load(object sender, EventArgs e)
     {
-            
+
     }
 }

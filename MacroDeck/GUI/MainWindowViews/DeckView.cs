@@ -1,7 +1,4 @@
-﻿using System.Diagnostics;
-using System.Drawing;
-using System.Windows.Forms;
-using SuchByte.MacroDeck.ActionButton;
+﻿using SuchByte.MacroDeck.ActionButton;
 using SuchByte.MacroDeck.Enums;
 using SuchByte.MacroDeck.Events;
 using SuchByte.MacroDeck.Folders;
@@ -16,8 +13,8 @@ using SuchByte.MacroDeck.Properties;
 using SuchByte.MacroDeck.Server;
 using SuchByte.MacroDeck.Services;
 using SuchByte.MacroDeck.Utils;
+using System.Diagnostics;
 using Clipboard = SuchByte.MacroDeck.Utils.Clipboard;
-using Form = SuchByte.MacroDeck.GUI.CustomControls.Form;
 using MessageBox = SuchByte.MacroDeck.GUI.CustomControls.MessageBox;
 
 namespace SuchByte.MacroDeck.GUI.MainWindowContents;

@@ -1,6 +1,6 @@
-﻿using System.IO;
+﻿using SuchByte.MacroDeck.GUI.CustomControls;
+using System.IO;
 using System.Xml;
-using SuchByte.MacroDeck.GUI.CustomControls;
 
 namespace SuchByte.MacroDeck.GUI.Dialogs;
 
@@ -25,7 +25,7 @@ public partial class LicensesDialog : DialogForm
 
         using var resourceStream = assembly.GetManifestResourceStream(licensesFileName);
         using var streamReader = new StreamReader(resourceStream);
-        result= streamReader.ReadToEnd();
+        result = streamReader.ReadToEnd();
 
         var doc = new XmlDocument();
         doc.LoadXml(result);

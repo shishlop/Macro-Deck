@@ -1,8 +1,6 @@
-﻿using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Windows.Forms;
-using SuchByte.MacroDeck.Properties;
+﻿using SuchByte.MacroDeck.Properties;
 using System.ComponentModel;
+using System.Drawing.Drawing2D;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls;
 
@@ -201,7 +199,8 @@ public partial class ButtonPrimary : Button
             if (_hover)
             {
                 pe.Graphics.FillRectangle(new SolidBrush(HoverColor), rectSurface);
-            } else
+            }
+            else
             {
                 pe.Graphics.FillRectangle(new SolidBrush(BackColor), rectSurface);
             }
@@ -216,11 +215,12 @@ public partial class ButtonPrimary : Button
             if (progress > 0 && WriteProgress)
             {
                 TextRenderer.DrawText(pe.Graphics, string.Format("{0}%", progress), Font, ClientRectangle, ForeColor, flags);
-            } else
+            }
+            else
             {
                 TextRenderer.DrawText(pe.Graphics, text, Font, ClientRectangle, ForeColor, flags);
             }
-            
+
             if (Spinner)
             {
                 AnimateImage();

@@ -1,5 +1,4 @@
-﻿using System.Drawing;
-using System.Drawing.Drawing2D;
+﻿using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 
 namespace SuchByte.MacroDeck.Utils;
@@ -12,7 +11,7 @@ public class CombineBitmaps
 
         using var g = Graphics.FromImage(combined);
         g.SmoothingMode = SmoothingMode.AntiAlias;
-        foreach(var bitmap in bitmaps)
+        foreach (var bitmap in bitmaps)
         {
             g.DrawImage(bitmap, Point.Empty);
         }

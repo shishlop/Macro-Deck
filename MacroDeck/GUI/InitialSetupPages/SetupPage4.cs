@@ -1,8 +1,7 @@
-﻿using System.Net;
-using System.Windows.Forms;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.Language;
+using System.Net;
 
 namespace SuchByte.MacroDeck.GUI.InitialSetupPages;
 
@@ -15,11 +14,12 @@ public partial class SetupPage4 : UserControl
         lblDontWorry.Text = LanguageManager.Strings.InitialSetupDontWorryInstallUninstallPlugins;
     }
 
-        
+
 
     private void LoadAvailablePlugins(bool autoInstall = false)
     {
-        Invoke(() => {
+        Invoke(() =>
+        {
             plugins.Controls.Clear();
             progressBar.Visible = true;
         });
@@ -47,7 +47,8 @@ public partial class SetupPage4 : UserControl
             {
                 progressBar.Visible = false;
             });
-        } catch
+        }
+        catch
         {
             Invoke(() =>
             {

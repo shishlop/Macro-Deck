@@ -1,10 +1,9 @@
-﻿using System.Drawing;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using SuchByte.MacroDeck.Utils;
 
 namespace SuchByte.MacroDeck.ActionButton;
 
-public class ButtonLabel 
+public class ButtonLabel
 {
     public event EventHandler LabelBase64Changed;
 

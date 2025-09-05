@@ -1,13 +1,13 @@
-﻿using System.Drawing.Imaging;
-using System.IO;
-using System.IO.Compression;
-using System.Net;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using SuchByte.MacroDeck.ExtensionStore;
 using SuchByte.MacroDeck.Logging;
 using SuchByte.MacroDeck.Models;
 using SuchByte.MacroDeck.Startup;
 using SuchByte.MacroDeck.Utils;
+using System.Drawing.Imaging;
+using System.IO;
+using System.IO.Compression;
+using System.Net;
 
 namespace SuchByte.MacroDeck.Icons;
 
@@ -158,7 +158,7 @@ public class IconManager
             };
 
             iconPack.Icons.Add(icon);
-             
+
             return icon;
         }
         catch (Exception ex)
@@ -167,7 +167,7 @@ public class IconManager
         }
         return null;
     }
-       
+
     public static void ExportIconPack(IconPack iconPack, string destination)
     {
         var iconPackDir = Path.Combine(ApplicationPaths.IconPackDirectoryPath, iconPack.PackageId);
@@ -180,11 +180,12 @@ public class IconManager
             {
                 archive.CreateEntryFromFile(Path.Combine(iconPackDir, iconPackFile.Name), iconPackFile.Name);
             }
-        } catch (Exception ex)
+        }
+        catch (Exception ex)
         {
             MacroDeckLogger.Error(typeof(IconManager), $"Error while exporting icon pack: {ex.Message}");
         }
-            
+
     }
 
     public static void DeleteIconPack(IconPack iconPack)
@@ -198,7 +199,8 @@ public class IconManager
         try
         {
             Directory.Delete(Path.Combine(ApplicationPaths.IconPackDirectoryPath, iconPack.PackageId), true);
-        } catch (Exception ex) 
+        }
+        catch (Exception ex)
         {
             MacroDeckLogger.Warning(typeof(IconManager), $"Unable to delete icon pack: {ex.Message}");
         }
@@ -214,7 +216,8 @@ public class IconManager
         try
         {
             File.Delete(icon.FilePath);
-        } catch { }
+        }
+        catch { }
     }
 
     public static void SaveIconPack(IconPack iconPack)
@@ -301,7 +304,8 @@ public class IconManager
                     }
                     catch { }
                 }
-            } else
+            }
+            else
             {
                 Directory.Delete(destinationPath, true);
             }
@@ -312,7 +316,8 @@ public class IconManager
                 try
                 {
                     File.Create(Path.Combine(destinationPath, ".extensionstore"));
-                } catch { }
+                }
+                catch { }
             }
             if (LoadIconPack(destinationPath))
             {
@@ -328,7 +333,8 @@ public class IconManager
 
             MacroDeckLogger.Error(typeof(IconManager), $"{extensionManifestModel.PackageId} is maybe corruped");
             return null;
-        } catch (Exception ex)
+        }
+        catch (Exception ex)
         {
             MacroDeckLogger.Error(typeof(IconManager), $"Error while installing icon pack from zip: {ex.Message}");
         }

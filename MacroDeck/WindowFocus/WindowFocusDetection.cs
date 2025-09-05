@@ -1,6 +1,6 @@
-﻿using System.Diagnostics;
+﻿using SuchByte.MacroDeck.Variables;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
-using SuchByte.MacroDeck.Variables;
 
 namespace SuchByte.MacroDeck.WindowsFocus;
 
@@ -59,7 +59,7 @@ public class WindowFocusDetection
                 NewProcess = process.ProcessName,
                 PreviousProcess = _focusedApplication
             };
-            
+
             OnWindowFocusChanged?.Invoke(_focusedApplication, windowChangedEventArgs);
             _focusedApplication = process.ProcessName;
             VariableManager.SetValue("previous_focused_application", windowChangedEventArgs.PreviousProcess, VariableType.String, "Macro Deck");

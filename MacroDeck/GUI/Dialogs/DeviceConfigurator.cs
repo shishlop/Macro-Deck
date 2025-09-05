@@ -65,7 +65,7 @@ public partial class DeviceConfigurator : DialogForm
 
     private void CheckAutoConnect_CheckedChanged(object sender, EventArgs e)
     {
-        MacroDeckLogger.Trace(GetType(), $"Set auto connect to { checkAutoConnect.Checked }");
+        MacroDeckLogger.Trace(GetType(), $"Set auto connect to {checkAutoConnect.Checked}");
         if (_macroDeckDevice == null || !_macroDeckDevice.Available) return;
         _macroDeckDevice.Configuration.AutoConnect = checkAutoConnect.Checked;
         DeviceManager.SaveKnownDevices();

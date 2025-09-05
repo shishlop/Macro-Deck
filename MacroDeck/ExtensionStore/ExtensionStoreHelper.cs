@@ -1,8 +1,4 @@
-﻿using System.IO;
-using System.Net.Http;
-using System.Net.Http.Json;
-using System.Windows.Forms;
-using SuchByte.MacroDeck.GUI.CustomControls;
+﻿using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.GUI.Dialogs;
 using SuchByte.MacroDeck.GUI.MainWindowViews;
 using SuchByte.MacroDeck.Icons;
@@ -13,6 +9,9 @@ using SuchByte.MacroDeck.Models;
 using SuchByte.MacroDeck.Notifications;
 using SuchByte.MacroDeck.Plugins;
 using SuchByte.MacroDeck.Properties;
+using System.IO;
+using System.Net.Http;
+using System.Net.Http.Json;
 
 namespace SuchByte.MacroDeck.ExtensionStore;
 
@@ -151,10 +150,10 @@ public class ExtensionStoreHelper
             {
                 return false;
             }
-            
+
             MacroDeckLogger.Info("Update available for " + packageId);
             return true;
-        } 
+        }
         catch (Exception ex)
         {
             MacroDeckLogger.Error($"Failed to check for updates for {packageId}\n{ex}");

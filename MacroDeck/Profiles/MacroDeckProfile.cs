@@ -1,6 +1,6 @@
-﻿using System.Runtime.InteropServices;
-using SuchByte.MacroDeck.Device;
+﻿using SuchByte.MacroDeck.Device;
 using SuchByte.MacroDeck.Folders;
+using System.Runtime.InteropServices;
 
 namespace SuchByte.MacroDeck.Profiles;
 

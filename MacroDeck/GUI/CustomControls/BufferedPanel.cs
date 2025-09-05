@@ -1,6 +1,4 @@
-﻿using System.Windows.Forms;
-
-namespace SuchByte.MacroDeck.GUI.CustomControls;
+﻿namespace SuchByte.MacroDeck.GUI.CustomControls;
 
 public partial class BufferedPanel : Panel
 {

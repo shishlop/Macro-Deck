@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
-using SuchByte.MacroDeck.GUI.CustomControls;
+﻿using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.Language;
 using SuchByte.MacroDeck.Server;
 using Timer = System.Timers.Timer;
@@ -45,7 +43,8 @@ public partial class NewConnectionDialog : DialogForm
             Enabled = true,
             Interval = 1000
         };
-        _denyTimer.Elapsed += (sender, e) => {
+        _denyTimer.Elapsed += (sender, e) =>
+        {
             _denyTimeout--;
             btnDeny.Text = $"{LanguageManager.Strings.Deny} ({_denyTimeout})";
             if (_denyTimeout <= 0)

@@ -1,8 +1,8 @@
-﻿using System.Diagnostics;
-using System.IO;
-using Microsoft.Win32;
+﻿using Microsoft.Win32;
 using Newtonsoft.Json;
 using SuchByte.MacroDeck.Logging;
+using System.Diagnostics;
+using System.IO;
 
 namespace SuchByte.MacroDeck.Configuration;
 
@@ -10,7 +10,9 @@ public class MainConfiguration
 {
     private bool _autoStart = true;
     [JsonProperty("AutoStart")]
-    public bool AutoStart { get => _autoStart;
+    public bool AutoStart
+    {
+        get => _autoStart;
         set
         {
             _autoStart = value;

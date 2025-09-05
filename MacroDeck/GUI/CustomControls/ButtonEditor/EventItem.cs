@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
-using SuchByte.MacroDeck.ActionButton;
+﻿using SuchByte.MacroDeck.ActionButton;
 using SuchByte.MacroDeck.ActionButton.Plugin;
 using SuchByte.MacroDeck.Events;
 using SuchByte.MacroDeck.Interfaces;
@@ -38,7 +36,7 @@ public partial class EventItem : UserControl
         menuItemCondition.Text = LanguageManager.Strings.Condition;
         menuItemDelay.Text = LanguageManager.Strings.Delay;
         lblTrigger.Text = LanguageManager.Strings.Trigger;
-            
+
     }
 
     private void EventItem_Load(object sender, EventArgs e)
@@ -110,7 +108,7 @@ public partial class EventItem : UserControl
             actionItem.OnMoveDownClick += MoveDownClicked;
         }
     }
-       
+
 
     private void RefreshActions()
     {

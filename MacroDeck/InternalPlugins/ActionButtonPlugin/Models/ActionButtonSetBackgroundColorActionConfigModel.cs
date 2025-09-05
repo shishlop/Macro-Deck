@@ -1,8 +1,7 @@
-﻿using System.Drawing;
+﻿using SuchByte.MacroDeck.InternalPlugins.ActionButtonPlugin.Enums;
+using SuchByte.MacroDeck.Models;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using SuchByte.MacroDeck.InternalPlugins.ActionButtonPlugin.Enums;
-using SuchByte.MacroDeck.Models;
 
 namespace SuchByte.MacroDeck.InternalPlugins.ActionButtonPlugin.Models;
 

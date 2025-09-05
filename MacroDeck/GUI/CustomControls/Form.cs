@@ -1,10 +1,6 @@
-﻿using System.Diagnostics;
-using System.Drawing;
-using System.IO;
-using System.Runtime.InteropServices;
-using System.Windows.Forms;
-using SuchByte.MacroDeck.Language;
+﻿using SuchByte.MacroDeck.Language;
 using SuchByte.MacroDeck.Logging;
+using System.IO;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls;
 
@@ -25,7 +21,7 @@ public partial class Form : System.Windows.Forms.Form
         {
             return;
         }
-        
+
         FormWindowStateChanged?.Invoke(this, EventArgs.Empty);
     }
 

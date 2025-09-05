@@ -1,7 +1,5 @@
-﻿using System.Drawing;
+﻿using System.ComponentModel;
 using System.Drawing.Drawing2D;
-using System.Windows.Forms;
-using System.ComponentModel;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls;
 
@@ -24,7 +22,7 @@ public class ComboBox : System.Windows.Forms.ComboBox
         }
     }
 
-        
+
 
     public ComboBox()
     {
@@ -77,7 +75,7 @@ public class ComboBox : System.Windows.Forms.ComboBox
     protected override void OnPaint(PaintEventArgs pe)
     {
         base.OnPaint(pe);
-            
+
         var rectSurface = ClientRectangle;
         var rectText = new Rectangle
         {
@@ -106,7 +104,7 @@ public class ComboBox : System.Windows.Forms.ComboBox
             LineAlignment = StringAlignment.Center
         };
 
-        using var brush = new SolidBrush(Enabled ? (_hover ? Color.White : Color.Silver) : Color.FromArgb(95,95,95));
+        using var brush = new SolidBrush(Enabled ? (_hover ? Color.White : Color.Silver) : Color.FromArgb(95, 95, 95));
         pe.Graphics.DrawString(Text, Font, brush, rectText, stringFormat);
         if (Enabled)
         {

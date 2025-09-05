@@ -1,5 +1,4 @@
-﻿using System.Windows.Forms;
-using SuchByte.MacroDeck.GUI.CustomControls;
+﻿using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.Language;
 using SuchByte.MacroDeck.Variables;
 using MessageBox = SuchByte.MacroDeck.GUI.CustomControls.MessageBox;
@@ -26,13 +25,14 @@ public partial class VariableDialog : DialogForm
             Variable = new Variable();
             variableName.Enabled = true;
             _edit = false;
-        } else
+        }
+        else
         {
             Variable = variable;
             variableName.Enabled = false;
             _edit = true;
         }
-            
+
         _protected = (Variable.Creator != "User");
         variableType.Enabled = !_protected;
         variableValue.Enabled = !_protected;
@@ -41,7 +41,7 @@ public partial class VariableDialog : DialogForm
 
     private void VariableName_TextChanged(object sender, EventArgs e)
     {
-            
+
     }
 
     private void BtnOk_Click(object sender, EventArgs e)
@@ -108,7 +108,7 @@ public partial class VariableDialog : DialogForm
     private void BtnDelete_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
         using var msgBox = new MessageBox();
-        if(msgBox.ShowDialog(LanguageManager.Strings.AreYouSure, string.Format(LanguageManager.Strings.VariableXGetsDeleted, Variable.Name), MessageBoxButtons.YesNo) == DialogResult.Yes)
+        if (msgBox.ShowDialog(LanguageManager.Strings.AreYouSure, string.Format(LanguageManager.Strings.VariableXGetsDeleted, Variable.Name), MessageBoxButtons.YesNo) == DialogResult.Yes)
         {
             VariableManager.DeleteVariable(Variable.Name);
             DialogResult = DialogResult.Cancel;

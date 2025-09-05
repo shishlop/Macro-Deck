@@ -12,7 +12,10 @@ public class MacroDeckDevice
     public string DisplayName { get; set; }
 
     [JsonIgnore]
-    public bool Available { get {
+    public bool Available
+    {
+        get
+        {
             var macroDeckClient = MacroDeckServer.GetMacroDeckClient(ClientId);
             if (macroDeckClient != null && WebSocketHandler.IsAvailable(macroDeckClient.SessionId))
             {

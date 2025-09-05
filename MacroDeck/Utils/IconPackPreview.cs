@@ -1,6 +1,5 @@
-﻿using System.Drawing;
+﻿using SuchByte.MacroDeck.Icons;
 using System.Drawing.Drawing2D;
-using SuchByte.MacroDeck.Icons;
 
 namespace SuchByte.MacroDeck.Utils;
 
@@ -19,7 +18,7 @@ public static class IconPackPreview
 
         using (var g = Graphics.FromImage(bitmap))
         {
-            g.Clear(Color.FromArgb(32,32,32));
+            g.Clear(Color.FromArgb(32, 32, 32));
         }
 
         var canvas = Graphics.FromImage(bitmap);
@@ -42,7 +41,8 @@ public static class IconPackPreview
                     column = 0;
                     row++;
                 }
-            } catch
+            }
+            catch
             {
             }
         }

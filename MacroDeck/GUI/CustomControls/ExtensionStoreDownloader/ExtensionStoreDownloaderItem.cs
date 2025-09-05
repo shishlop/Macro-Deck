@@ -1,9 +1,4 @@
-﻿using System.Drawing;
-using System.IO;
-using System.Net.Http;
-using System.Net.Http.Json;
-using System.Threading;
-using SuchByte.MacroDeck.DataTypes.FileDownloader;
+﻿using SuchByte.MacroDeck.DataTypes.FileDownloader;
 using SuchByte.MacroDeck.ExtensionStore;
 using SuchByte.MacroDeck.Icons;
 using SuchByte.MacroDeck.Language;
@@ -13,6 +8,9 @@ using SuchByte.MacroDeck.Models;
 using SuchByte.MacroDeck.Plugins;
 using SuchByte.MacroDeck.Startup;
 using SuchByte.MacroDeck.Utils;
+using System.IO;
+using System.Net.Http;
+using System.Net.Http.Json;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls.ExtensionStoreDownloader;
 
@@ -90,7 +88,7 @@ public partial class ExtensionStoreDownloaderItem : RoundedUserControl
         var iconUrl = $"{Constants.ExtensionStoreApiBaseUrl}/rest/v2/extensions/icon/{PackageInfo.PackageId}";
         ApiV2Extension = await httpClient.GetFromJsonAsync<ApiV2Extension>(extensionUrl, cancellationToken) ??
                          throw new InvalidOperationException();
-        
+
         _destinationFileName = Path.Combine(ApplicationPaths.TempDirectoryPath, $"{ApiV2Extension.PackageId}.zip");
 
         using var iconStream = await FileDownloader.DownloadImageAsync(iconUrl, CancellationToken.None);
@@ -101,21 +99,21 @@ public partial class ExtensionStoreDownloaderItem : RoundedUserControl
             extensionIcon.BackgroundImage = icon;
             lblPackageName.Text = string.Format(LanguageManager.Strings.ExtensionStoreDownloaderPackageIdVersion, PackageInfo.PackageId, "latest");
         });
-        
-        await FileDownloader.DownloadFileAsync(downloadUrl, 
+
+        await FileDownloader.DownloadFileAsync(downloadUrl,
             _destinationFileName,
-            new Progress<DownloadProgressInfo>(UpdateProgress), 
+            new Progress<DownloadProgressInfo>(UpdateProgress),
             cancellationToken);
-        
+
         Invoke(() =>
         {
             progressBar.Visible = false;
             lblStatus.Text = LanguageManager.Strings.Installing;
         });
-        
+
         await Install(file.FileHash, cancellationToken);
     }
-    
+
     private void UpdateProgress(DownloadProgressInfo progressInfo)
     {
         if (InvokeRequired)

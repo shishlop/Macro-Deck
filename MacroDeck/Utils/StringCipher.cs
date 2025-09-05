@@ -1,6 +1,6 @@
-﻿using System.IO;
+﻿using Microsoft.Win32;
+using System.IO;
 using System.Security.Cryptography;
-using Microsoft.Win32;
 
 namespace SuchByte.MacroDeck.Utils;
 

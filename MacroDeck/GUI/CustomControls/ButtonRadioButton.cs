@@ -1,7 +1,5 @@
-﻿using System.Drawing;
+﻿using System.ComponentModel;
 using System.Drawing.Drawing2D;
-using System.Windows.Forms;
-using System.ComponentModel;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls;
 
@@ -104,7 +102,7 @@ public partial class ButtonRadioButton : RadioButton
                 iconSurface = new Rectangle(rectSurface.X + (Width / 2) - ((rectSurface.Height - Margin.Top - Margin.Bottom) / 2), rectSurface.Y + Margin.Top, rectSurface.Height - Margin.Top - Margin.Bottom, rectSurface.Height - Margin.Top - Margin.Bottom);
                 break;
         }
-            
+
 
         var smoothSize = 2;
         using var pathSurface = GetFigurePath(rectSurface, _borderRadius);

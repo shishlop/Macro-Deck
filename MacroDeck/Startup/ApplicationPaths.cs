@@ -1,5 +1,5 @@
-﻿using System.IO;
-using SuchByte.MacroDeck.Logging;
+﻿using SuchByte.MacroDeck.Logging;
+using System.IO;
 
 namespace SuchByte.MacroDeck.Startup;
 
@@ -28,14 +28,14 @@ public class ApplicationPaths
         ExecutablePath = Environment.ProcessPath ?? Path.Combine(AppDomain.CurrentDomain.BaseDirectory + "Macro Deck 2.exe");
         MainDirectoryPath = AppDomain.CurrentDomain.BaseDirectory;
     }
-    
+
     public static void Initialize(bool portableMode)
     {
         _portableMode = portableMode;
         InitializePaths();
         CheckPaths();
     }
-    
+
     private static void InitializePaths()
     {
         UserDirectoryPath = _portableMode ?

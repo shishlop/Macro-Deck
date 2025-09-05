@@ -6,7 +6,7 @@ namespace MacroDeck.Tests;
 public class StringCipherTests
 {
     private string machineId;
-    
+
     [SetUp]
     public void Setup()
     {

@@ -1,5 +1,4 @@
-﻿using System.Windows.Forms;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls
 {

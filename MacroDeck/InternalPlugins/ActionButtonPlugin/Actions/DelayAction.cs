@@ -1,5 +1,4 @@
-﻿using System.Threading;
-using SuchByte.MacroDeck.Plugins;
+﻿using SuchByte.MacroDeck.Plugins;
 
 namespace SuchByte.MacroDeck.ActionButton.Plugin; // Don't change because of backwards compatibility!
 
@@ -14,6 +13,7 @@ public class DelayAction : PluginAction
         try
         {
             Thread.Sleep(int.Parse(Configuration));
-        } catch { }
+        }
+        catch { }
     }
 }

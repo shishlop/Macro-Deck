@@ -45,14 +45,14 @@ public class ReadVariableFromFileActionConfigViewModel : ISerializableConfigView
         }
         catch (Exception ex)
         {
-            MacroDeckLogger.Error(typeof(ReadVariableFromFileActionConfigModel), $"Error while saving config: { ex.Message + Environment.NewLine + ex.StackTrace }");
+            MacroDeckLogger.Error(typeof(ReadVariableFromFileActionConfigModel), $"Error while saving config: {ex.Message + Environment.NewLine + ex.StackTrace}");
         }
         return true;
     }
 
     public void SetConfig()
     {
-        _pluginAction.ConfigurationSummary = $"{ Configuration.FilePath }";
+        _pluginAction.ConfigurationSummary = $"{Configuration.FilePath}";
         _pluginAction.Configuration = Configuration.Serialize();
     }
 }

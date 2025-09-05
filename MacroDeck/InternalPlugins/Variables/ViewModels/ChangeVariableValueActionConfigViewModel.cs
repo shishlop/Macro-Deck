@@ -53,7 +53,7 @@ public class ChangeVariableValueActionConfigViewModel : ISerializableConfigViewM
         }
         catch (Exception ex)
         {
-            MacroDeckLogger.Error(typeof(ChangeVariableValueActionConfigViewModel), $"Error while saving config: { ex.Message + Environment.NewLine + ex.StackTrace }");
+            MacroDeckLogger.Error(typeof(ChangeVariableValueActionConfigViewModel), $"Error while saving config: {ex.Message + Environment.NewLine + ex.StackTrace}");
         }
         return true;
     }

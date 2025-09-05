@@ -1,5 +1,4 @@
-﻿using System.Windows.Forms;
-using SuchByte.MacroDeck.GUI.CustomControls;
+﻿using SuchByte.MacroDeck.GUI.CustomControls;
 using SuchByte.MacroDeck.Language;
 
 namespace SuchByte.MacroDeck.GUI.Dialogs;
@@ -32,7 +31,8 @@ public partial class IconImportQuality : DialogForm
         if (qualityOriginal.Checked)
         {
             Pixels = -1;
-        } else if (qualityHigh.Checked)
+        }
+        else if (qualityHigh.Checked)
         {
             Pixels = 350;
         }

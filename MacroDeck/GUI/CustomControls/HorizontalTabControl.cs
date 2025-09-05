@@ -1,7 +1,5 @@
-﻿using System.Drawing;
+﻿using System.ComponentModel;
 using System.Drawing.Drawing2D;
-using System.Windows.Forms;
-using System.ComponentModel;
 
 namespace SuchByte.MacroDeck.GUI.CustomControls;
 
@@ -38,7 +36,7 @@ public class HorizontalTabControl : TabControl
         for (var i = 0; i <= TabCount - 1; i++)
         {
             var buttonSurface = new Rectangle(new Point(GetTabRect(i).Location.X + 6, GetTabRect(i).Location.Y - 2), new Size(GetTabRect(i).Width - 5, GetTabRect(i).Height - 1));
-                
+
             using (var backgroundBrush = new SolidBrush(Parent.BackColor))
             using (var selectedBrush = new SolidBrush(Colors.AccentColorDark))
             {
