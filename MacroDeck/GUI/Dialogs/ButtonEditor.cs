@@ -29,6 +29,8 @@ public partial class ButtonEditor : DialogForm
         Error = (sender, args) => { args.ErrorContext.Handled = true; }
     };
 
+    // Editor reference to access from other classes. If empty, no button editor is open.
+    public static ButtonEditor CurrentButtonEditor = null;
 
     private ActionButton.ActionButton actionButton;
     private ActionButton.ActionButton actionButtonEdited;
@@ -62,7 +64,7 @@ public partial class ButtonEditor : DialogForm
 
         this.folder = folder;
         this.actionButton = actionButton;
-            
+
         using (var col = new InstalledFontCollection())
         {
             foreach (var fontFamily in col.Families)
@@ -94,7 +96,7 @@ public partial class ButtonEditor : DialogForm
         {
             Invoke(() =>
             {
-                
+
                 var newState = ((ActionButton.ActionButton)sender).State;
                 lblCurrentState.Text = newState ? "On" : "Off";
                 radioButtonOff.Checked = !newState;
@@ -135,14 +137,16 @@ public partial class ButtonEditor : DialogForm
 
                 labelBitmap = (Bitmap)LabelGenerator.GetLabel(labelBitmap, labelText, buttonLabel.LabelPosition, new Font(buttonLabel.FontFamily, buttonLabel.Size), buttonLabel.LabelColor, Color.Black, new SizeF(2.0F, 2.0F));
                 buttonLabel.LabelBase64 = Base64.GetBase64FromImage(labelBitmap);
-                Invoke(() => {
+                Invoke(() =>
+                {
                     if (this != null && Disposing == false && IsDisposed == false)
                     {
                         btnPreview.ForegroundImage = labelBitmap;
                     }
                 });
             });
-        } catch (Exception ex)
+        }
+        catch (Exception ex)
         {
             MacroDeckLogger.Error(GetType(), "Error while updating label: " + ex.Message + Environment.NewLine + ex.StackTrace);
         }
@@ -156,7 +160,7 @@ public partial class ButtonEditor : DialogForm
         labelAlignCenter.CheckedChanged -= LabelChanged;
         labelAlignBottom.CheckedChanged -= LabelChanged;
         fonts.SelectedIndexChanged -= LabelChanged;
-            
+
         try
         {
             var buttonLabel = radioButtonOff.Checked && !radioButtonOn.Checked ? actionButtonEdited.LabelOff : actionButtonEdited.LabelOn;
@@ -182,7 +186,8 @@ public partial class ButtonEditor : DialogForm
             {
                 labelText.PlaceHolderText = LanguageManager.Strings.Label;
             }
-        } catch (Exception ex) 
+        }
+        catch (Exception ex)
         {
             MacroDeckLogger.Error(GetType(), "Error while refreshing label: " + ex.Message + Environment.NewLine + ex.StackTrace);
         }
@@ -192,6 +197,18 @@ public partial class ButtonEditor : DialogForm
         labelAlignCenter.CheckedChanged += LabelChanged;
         labelAlignBottom.CheckedChanged += LabelChanged;
         fonts.SelectedIndexChanged += LabelChanged;
+    }
+
+    public void SetButtonOnIcon(string iconString)
+    {
+        actionButtonEdited.IconOn = iconString;
+        RefreshIcon();
+    }
+
+    public void SetButtonOffIcon(string iconString)
+    {
+        actionButtonEdited.IconOff = iconString;
+        RefreshIcon();
     }
 
     public void RefreshIcon()
@@ -213,7 +230,7 @@ public partial class ButtonEditor : DialogForm
 
             var buttonLabel = radioButtonOff.Checked && !radioButtonOn.Checked ? actionButtonEdited.LabelOff : actionButtonEdited.LabelOn;
 
-            if (buttonLabel != null && !string.IsNullOrWhiteSpace(buttonLabel.LabelBase64)) 
+            if (buttonLabel != null && !string.IsNullOrWhiteSpace(buttonLabel.LabelBase64))
             {
                 var label = Base64.GetImageFromBase64(buttonLabel.LabelBase64);
                 if (label != null)
@@ -230,7 +247,8 @@ public partial class ButtonEditor : DialogForm
             btnPreview.BackColor = backColor;
 
             btnPreview.ShowGIFIndicator = btnPreview.BackgroundImage != null && btnPreview.BackgroundImage.RawFormat.ToString().ToLower() == "gif";
-        } catch (Exception ex) 
+        }
+        catch (Exception ex)
         {
             MacroDeckLogger.Error(GetType(), "Error while refreshing icon: " + ex.Message + Environment.NewLine + ex.StackTrace);
         }
@@ -290,6 +308,8 @@ public partial class ButtonEditor : DialogForm
     private void BtnOk_Click(object sender, EventArgs e)
     {
         Apply();
+        // Remove reference to the currently open editor, so no other class can access it.
+        CurrentButtonEditor = null;
         Close();
     }
 
@@ -358,7 +378,7 @@ public partial class ButtonEditor : DialogForm
     }
 
 
-       
+
     private void RadioButton_CheckedChanged(object sender, EventArgs e)
     {
         RefreshLabel();

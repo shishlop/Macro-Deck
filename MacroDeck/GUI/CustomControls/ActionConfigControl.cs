@@ -1,4 +1,6 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.ComponentModel;
+
 
 namespace SuchByte.MacroDeck.GUI.CustomControls;
 
@@ -17,6 +19,11 @@ public partial class ActionConfigControl : UserControl
 
     public ActionConfigControl()
     {
+        // skip runtime init in Designer
+        if (LicenseManager.UsageMode == LicenseUsageMode.Designtime)
+        {
+            return;
+        }
         InitializeComponent();
     }
 }

@@ -472,6 +472,7 @@ public partial class DeckView : UserControl
 
 
         using var buttonEditor = new ButtonEditor(actionButton, _currentFolder);
+        ButtonEditor.CurrentButtonEditor = buttonEditor;
         buttonEditor.ShowDialog();
         ProfileManager.Save();
         UpdateButtons();

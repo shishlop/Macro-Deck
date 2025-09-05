@@ -1,5 +1,4 @@
-﻿using System.Drawing;
-using System.Drawing.Imaging;
+﻿using System.Drawing.Imaging;
 using System.IO;
 using System.IO.Compression;
 using System.Net;
@@ -117,8 +116,10 @@ public class IconManager
         return iconPack?.Icons.Find(icon => icon.IconId == iconId);
     }
 
+    /// expected string: "iconPackName.iconId
     public static Icon? GetIconByString(string s)
     {
+        if (s.IndexOf(".") == -1) return null;
         var iconPack = GetIconPackByName(s.Substring(0, s.IndexOf(".")));
         if (iconPack == null) return null;
         var icon = GetIcon(iconPack, s.Substring(s.IndexOf(".") + 1));
@@ -157,7 +158,7 @@ public class IconManager
             };
 
             iconPack.Icons.Add(icon);
-                
+             
             return icon;
         }
         catch (Exception ex)
@@ -255,7 +256,7 @@ public class IconManager
         }
     }
 
-    public static void CreateIconPack(string iconPackName, string author, string version)
+    public static IconPack CreateIconPack(string iconPackName, string author, string version)
     {
         var iconPack = new IconPack
         {
@@ -269,6 +270,7 @@ public class IconManager
         SaveIconPack(iconPack);
 
         IconPacks.Add(iconPack);
+        return iconPack;
     }
 
     public static IconPack InstallIconPackZip(string location, bool extensionStoreManaged = false)
